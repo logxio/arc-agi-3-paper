@@ -1,0 +1,4351 @@
+{
+ "hidden110": {
+  "backbone_12": {
+   "refs": [
+    57252762,
+    57160178,
+    57123146,
+    57088910,
+    57059845,
+    57031236,
+    56980083,
+    56927381,
+    56901733,
+    56877896,
+    56837065,
+    56751129
+   ],
+   "scores": [
+    26.58,
+    21.22,
+    23.72,
+    23.33,
+    21.39,
+    28.38,
+    24.13,
+    24.12,
+    26.04,
+    23.49,
+    25.83,
+    27.2
+   ],
+   "n": 12,
+   "mean": 24.6192,
+   "sd": 2.2228,
+   "min": 21.22,
+   "max": 28.38,
+   "ci95_mean": [
+    23.207,
+    26.031
+   ],
+   "diff_noise_sd_two_single_runs": 3.1435
+  },
+  "backbone_vs_duck_v2": {
+   "inputs": {
+    "w4a16_36k": "24.62±2.22 (n=12)",
+    "duck_v2": "2.81±0.66 (n=6, peak 3.41)"
+   },
+   "mean_difference": 21.809,
+   "welch_t": 31.32,
+   "welch_df": 14.25,
+   "welch_p_two_sided": 1.52e-14,
+   "cohen_d_pooled": 11.6,
+   "hedges_g": 11.05,
+   "mann_whitney_U": 72,
+   "mann_whitney_p_two_sided_exact": 0.00010773540185304891,
+   "note_mw": "U = n1*n2 = 72 follows from min(36K) 21.22 > max(Duck) 3.41; p is the exact complete-separation value 2/C(18,6).",
+   "peak_ratio": 8.323,
+   "mean_ratio": 8.761
+  },
+  "single_runs_vs_backbone": {
+   "14k_cap_57774685": {
+    "score": 9.39,
+    "delta_vs_mean": -15.2292,
+    "z_sd_units": -6.851,
+    "prediction_t": -6.583,
+    "df": 11,
+    "p_two_sided_prediction_t": 3.956627580812693e-05,
+    "p_one_sided_below": 1.9783137904063464e-05,
+    "p_two_sided_normal_z": 7.318704945367237e-12,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "14k_convex_kill_57786717": {
+    "score": 7.72,
+    "delta_vs_mean": -16.8992,
+    "z_sd_units": -7.603,
+    "prediction_t": -7.304,
+    "df": 11,
+    "p_two_sided_prediction_t": 1.5344160026562406e-05,
+    "p_one_sided_below": 7.672080013281203e-06,
+    "p_two_sided_normal_z": 2.9026506913443444e-14,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "open_loop_600_57854657": {
+    "score": 20.76,
+    "delta_vs_mean": -3.8592,
+    "z_sd_units": -1.736,
+    "prediction_t": -1.668,
+    "df": 11,
+    "p_two_sided_prediction_t": 0.1234901528427453,
+    "p_one_sided_below": 0.06174507642137265,
+    "p_two_sided_normal_z": 0.08253555415835254,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "reactive_224_57894564": {
+    "score": 21.08,
+    "delta_vs_mean": -3.5392,
+    "z_sd_units": -1.592,
+    "prediction_t": -1.53,
+    "df": 11,
+    "p_two_sided_prediction_t": 0.15431703506072067,
+    "p_one_sided_below": 0.07715851753036033,
+    "p_two_sided_normal_z": 0.11134010471375066,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "cert_gated_57827241": {
+    "score": 25.7,
+    "delta_vs_mean": 1.0808,
+    "z_sd_units": 0.486,
+    "prediction_t": 0.467,
+    "df": 11,
+    "p_two_sided_prediction_t": 0.6494965530748549,
+    "p_one_sided_below": 0.6752517234625726,
+    "p_two_sided_normal_z": 0.6267936412350398,
+    "below_min_of_12": false,
+    "above_max_of_12": false
+   }
+  },
+  "pairwise": [
+   {
+    "pair": "cert-gated 25.70 vs open-loop 20.76",
+    "delta": 4.94,
+    "delta_in_backbone_sd": 2.222,
+    "z_two_run_noise": 1.571,
+    "p_one_sided_t11": 0.07218628929918242,
+    "p_two_sided_t11": 0.14437257859836483
+   },
+   {
+    "pair": "cert-gated 25.70 vs reactive-224 21.08",
+    "delta": 4.62,
+    "delta_in_backbone_sd": 2.078,
+    "z_two_run_noise": 1.47,
+    "p_one_sided_t11": 0.08483047305260398,
+    "p_two_sided_t11": 0.16966094610520796
+   },
+   {
+    "pair": "reactive-224 21.08 vs open-loop 20.76",
+    "delta": 0.32,
+    "delta_in_backbone_sd": 0.144,
+    "z_two_run_noise": 0.102,
+    "p_one_sided_t11": 0.46037520904154094,
+    "p_two_sided_t11": 0.9207504180830819
+   },
+   {
+    "pair": "convex kill 7.72 vs 14K 9.39",
+    "delta": -1.67,
+    "delta_in_backbone_sd": -0.751,
+    "z_two_run_noise": -0.531,
+    "p_one_sided_t11": 0.6970962395837721,
+    "p_two_sided_t11": 0.6058075208324558
+   }
+  ],
+  "rank_tests": {
+   "uncertified_two_runs_vs_backbone_12": {
+    "ranks_among_14": [
+     1,
+     2
+    ],
+    "rank_sum": 3,
+    "mann_whitney_U": 0,
+    "p_one_sided_exact": 0.01098901098901099,
+    "reading": "Both uncertified-bridge runs (20.76, 21.08) fall below all 12 backbone runs (min 21.22)."
+   },
+   "cert_gated_rank_among_13": {
+    "rank": 8,
+    "of": 13,
+    "p_two_sided_exact": 0.9230769230769231,
+    "reading": "The certificate-gated run sits inside the backbone distribution."
+   }
+  },
+  "brief_convention_check": {
+   "cert_vs_open_loop_delta_over_s": 2.222,
+   "p_one_sided_normal_at_that_z": 0.01312798327413001,
+   "cert_vs_reactive_delta_over_s": 2.078,
+   "p_one_sided_normal_at_that_z_reactive": 0.018834274875825632,
+   "cert_vs_mean_delta_over_s": 0.486
+  }
+ },
+ "wording_hits": [
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 9,
+   "term": "proves",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": ", under $(b_l/a_l)^2$, Chebyshev's order identity proves $k$ failed probes dilute score by $D(k)\\le S_0\\ma"
+  },
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 15,
+   "term": "prove",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "We separate serving from world-model gating [15], prove why cutoffs and uncertified probes [3,6] backfire"
+  },
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 98,
+   "term": "Proofs",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "24. Algebraic World Model: From Exploration to Proofs. arXiv:2610.40503, 2026."
+  },
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 102,
+   "term": "Theorem",
+   "replace_with": "Observation (or Proposition only for the renewal-reward / lattice results)",
+   "context": " E. Charnov. Optimal Foraging, the Marginal Value Theorem. Theoretical Population Biology 9(2):129-136, 197"
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 71,
+   "term": "Proofs",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "newal-Reward Theory, and Quadratic Probe-Dilution Proofs"
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 92,
+   "term": "Proof",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "*Proof.* In ARCBaseGame, RESET restores the initial leve"
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 313,
+   "term": "prove",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "e_impossibility.json and clone_certificates.json) prove that an early or final map has no reachable goal "
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 346,
+   "term": "proof",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "03) | 25 public games | Cloud API + Lean | Formal proof on public 25 | None | No |"
+  }
+ ],
+ "meta": {
+  "script_sha256": "6471148ed3c06b1d9f4773186e6ea5c666def6979a2a0f0c2ab4d7d984afd6a3",
+  "planner_sha256": "65d8bcefb9307f5d0e6c52ceefc80d53fd740f906e72faeac7b34ca662c92e58",
+  "max_rss_bytes": 115539968,
+  "runtime_s_this_call": 0.9
+ },
+ "ladder_runs": {
+  "public25/full": {
+   "suite": "public25",
+   "arm": "full",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.312,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 624,
+     "cpu_s": 11.045,
+     "total_levels": 9,
+     "top_reasons": {
+      "RisingFix": 521,
+      "observed": 92,
+      "reset": 11
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.269,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 266,
+     "cpu_s": 2.302,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 266
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 663,
+     "cpu_s": 5.653,
+     "total_levels": 6,
+     "top_reasons": {
+      "GravityFix": 663
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 77,
+     "cpu_s": 0.071,
+     "total_levels": 6,
+     "top_reasons": {
+      "visible": 77
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 1.217,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 393,
+     "cpu_s": 4.39,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 393
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 7,
+     "win": false,
+     "actions": 550,
+     "cpu_s": 12.094,
+     "total_levels": 10,
+     "top_reasons": {
+      "PegFix": 545,
+      "Dhia": 4,
+      "untried": 1
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 1.254,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 367,
+     "cpu_s": 2.628,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 367
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 1.128,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 2.159,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 538,
+     "cpu_s": 2.216,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 538
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 253,
+     "cpu_s": 5.725,
+     "total_levels": 8,
+     "top_reasons": {
+      "RodsFix": 253
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.469,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 142,
+     "cpu_s": 0.37,
+     "total_levels": 6,
+     "top_reasons": {
+      "SpellCorridors": 73,
+      "observed": 64,
+      "untried": 4,
+      "Dhia": 1
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 265,
+     "cpu_s": 2.192,
+     "total_levels": 8,
+     "top_reasons": {
+      "TelescopeFix": 265
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 130,
+     "cpu_s": 0.543,
+     "total_levels": 6,
+     "top_reasons": {
+      "ChannelsFix": 130
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 83,
+     "cpu_s": 1.995,
+     "total_levels": 9,
+     "top_reasons": {
+      "FusionFix": 83
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 95,
+     "cpu_s": 0.288,
+     "total_levels": 7,
+     "top_reasons": {
+      "BitPrograms": 95
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.615,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.875,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 2.092,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 4.641,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 180,
+   "wins": 24,
+   "errors": 0
+  },
+  "public25/no_astra": {
+   "suite": "public25",
+   "arm": "no_astra",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.219,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.096,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 840,
+      "observed": 189,
+      "Dhia": 134,
+      "untried": 20
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.24,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 266,
+     "cpu_s": 2.448,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 266
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.553,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 981,
+      "Dhia": 128,
+      "learned": 62,
+      "remote": 20
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 82,
+     "cpu_s": 0.257,
+     "total_levels": 6,
+     "top_reasons": {
+      "Ouellette": 79,
+      "observed": 3
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 1.117,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 388,
+     "cpu_s": 3.611,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 388
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.612,
+     "total_levels": 10,
+     "top_reasons": {
+      "width-two": 1078,
+      "Dhia": 56,
+      "untried": 55,
+      "observed": 8
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 1.021,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 367,
+     "cpu_s": 2.208,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 367
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 1.042,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 2.025,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 538,
+     "cpu_s": 2.169,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 538
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 5,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.749,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 928,
+      "arm": 213,
+      "width-two": 41,
+      "untried": 12
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.447,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.43,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 418,
+      "untried": 367,
+      "Dhia": 263,
+      "observed": 138
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.473,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 851,
+      "width-two": 266,
+      "observed": 61,
+      "untried": 17
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.011,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 603,
+      "Dhia": 548,
+      "reset": 30,
+      "untried": 19
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 2.587,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 950,
+      "untried": 234,
+      "reset": 16
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.224,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 1101,
+      "untried": 81,
+      "reset": 18
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.556,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.773,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 1.828,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 4.671,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 134,
+   "wins": 16,
+   "errors": 0
+  },
+  "public25/generic": {
+   "suite": "public25",
+   "arm": "generic",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.034,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.23,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 840,
+      "observed": 189,
+      "Dhia": 134,
+      "untried": 20
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.16,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.206,
+     "total_levels": 6,
+     "top_reasons": {
+      "Dhia": 716,
+      "width-two": 392,
+      "observed": 45,
+      "untried": 38
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.297,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 981,
+      "Dhia": 128,
+      "learned": 62,
+      "remote": 20
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 82,
+     "cpu_s": 0.228,
+     "total_levels": 6,
+     "top_reasons": {
+      "Ouellette": 79,
+      "observed": 3
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 0.908,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 386,
+     "cpu_s": 3.402,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 386
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.306,
+     "total_levels": 10,
+     "top_reasons": {
+      "width-two": 1078,
+      "Dhia": 56,
+      "untried": 55,
+      "observed": 8
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 0.952,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 369,
+     "cpu_s": 2.008,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 369
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.189,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 533,
+      "untried": 328,
+      "Dhia": 294,
+      "observed": 38
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 1.824,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.476,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 497,
+      "observed": 284,
+      "untried": 264,
+      "width-two": 150
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 5,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.536,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 928,
+      "arm": 213,
+      "width-two": 41,
+      "untried": 12
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.427,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.773,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 418,
+      "untried": 367,
+      "Dhia": 263,
+      "observed": 138
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.957,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 851,
+      "width-two": 266,
+      "observed": 61,
+      "untried": 17
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.501,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 603,
+      "Dhia": 548,
+      "reset": 30,
+      "untried": 19
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 2.897,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 950,
+      "untried": 234,
+      "reset": 16
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.566,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 1101,
+      "untried": 81,
+      "reset": 18
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.738,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.882,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 2.251,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 2.575,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 120,
+   "wins": 13,
+   "errors": 0
+  },
+  "public25/generic_nod4": {
+   "suite": "public25",
+   "arm": "generic_nod4",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.143,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.457,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 840,
+      "observed": 189,
+      "Dhia": 134,
+      "untried": 20
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.145,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.417,
+     "total_levels": 6,
+     "top_reasons": {
+      "Dhia": 716,
+      "width-two": 392,
+      "observed": 45,
+      "untried": 38
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.828,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 981,
+      "Dhia": 128,
+      "learned": 62,
+      "remote": 20
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 82,
+     "cpu_s": 0.194,
+     "total_levels": 6,
+     "top_reasons": {
+      "Ouellette": 79,
+      "observed": 3
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 1.042,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 389,
+     "cpu_s": 3.716,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 389
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.74,
+     "total_levels": 10,
+     "top_reasons": {
+      "width-two": 1078,
+      "Dhia": 56,
+      "untried": 55,
+      "observed": 8
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 0.897,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 369,
+     "cpu_s": 2.097,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 369
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.057,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 533,
+      "untried": 328,
+      "Dhia": 294,
+      "observed": 38
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 2.009,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.787,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 497,
+      "observed": 284,
+      "untried": 264,
+      "width-two": 150
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 5,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.649,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 928,
+      "arm": 213,
+      "width-two": 41,
+      "untried": 12
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.372,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.684,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 418,
+      "untried": 367,
+      "Dhia": 263,
+      "observed": 138
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.765,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 851,
+      "width-two": 266,
+      "observed": 61,
+      "untried": 17
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.993,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 603,
+      "Dhia": 548,
+      "reset": 30,
+      "untried": 19
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.553,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 950,
+      "untried": 234,
+      "reset": 16
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.509,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 1101,
+      "untried": 81,
+      "reset": 18
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.438,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.769,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 1.932,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 2.365,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 120,
+   "wins": 13,
+   "errors": 0
+  },
+  "ouellette_unseen25/full": {
+   "suite": "ouellette_unseen25",
+   "arm": "full",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "aquarium_sorter",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 0.192,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 169
+     }
+    },
+    {
+     "game": "badge_placement",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 420,
+     "cpu_s": 0.2,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 420
+     }
+    },
+    {
+     "game": "ball_sifting",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.063,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "balloon_festival",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 352,
+     "cpu_s": 0.431,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 352
+     }
+    },
+    {
+     "game": "color_sorter",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 41,
+     "cpu_s": 0.16,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 41
+     }
+    },
+    {
+     "game": "cq01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 120,
+     "cpu_s": 0.107,
+     "total_levels": 5,
+     "top_reasons": {
+      "decoded": 102,
+      "observed": 15,
+      "untried": 2,
+      "Dhia": 1
+     }
+    },
+    {
+     "game": "dl01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.452,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 65,
+      "untried": 30,
+      "Dhia": 20,
+      "decoded": 8
+     }
+    },
+    {
+     "game": "dungeon_key_hunt",
+     "levels_completed": 6,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 0.591,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 600
+     }
+    },
+    {
+     "game": "flood",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 484,
+     "cpu_s": 2.936,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 484
+     }
+    },
+    {
+     "game": "frog_crossing",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 360,
+     "cpu_s": 2.918,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 360
+     }
+    },
+    {
+     "game": "fs02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.39,
+     "total_levels": 5,
+     "top_reasons": {
+      "width-two": 58,
+      "observed": 49,
+      "Dhia": 32,
+      "decoded": 27
+     }
+    },
+    {
+     "game": "fs03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 394,
+     "cpu_s": 0.909,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 191,
+      "width-two": 106,
+      "Dhia": 65,
+      "untried": 32
+     }
+    },
+    {
+     "game": "gem_mine",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 513,
+     "cpu_s": 3.005,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 428,
+      "observed": 67,
+      "Dhia": 14,
+      "untried": 4
+     }
+    },
+    {
+     "game": "gp01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 26,
+     "cpu_s": 0.202,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 14,
+      "interactive": 12
+     }
+    },
+    {
+     "game": "ice_rink_stars",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 153,
+     "cpu_s": 0.198,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 153
+     }
+    },
+    {
+     "game": "klotski",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 179,
+     "cpu_s": 1.312,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 148,
+      "Dhia": 18,
+      "untried": 12,
+      "width-two": 1
+     }
+    },
+    {
+     "game": "maze",
+     "levels_completed": 6,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.531,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 572,
+      "untried": 22,
+      "Dhia": 6
+     }
+    },
+    {
+     "game": "mb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 81,
+     "cpu_s": 0.201,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 63,
+      "untried": 11,
+      "decoded": 7
+     }
+    },
+    {
+     "game": "mc:lamelightsout",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 107,
+     "cpu_s": 0.458,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 58,
+      "verified": 49
+     }
+    },
+    {
+     "game": "mm01",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.81,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "mm02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.573,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.58,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm04",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 198,
+     "cpu_s": 0.619,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 198
+     }
+    },
+    {
+     "game": "mm05",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.799,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "ms01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 158,
+     "cpu_s": 0.481,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 158
+     }
+    }
+   ],
+   "levels": 149,
+   "wins": 22,
+   "errors": 0
+  },
+  "ouellette_unseen25/no_astra": {
+   "suite": "ouellette_unseen25",
+   "arm": "no_astra",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "aquarium_sorter",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 0.174,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 169
+     }
+    },
+    {
+     "game": "badge_placement",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 420,
+     "cpu_s": 0.194,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 420
+     }
+    },
+    {
+     "game": "ball_sifting",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.057,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "balloon_festival",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 352,
+     "cpu_s": 0.4,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 352
+     }
+    },
+    {
+     "game": "color_sorter",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 41,
+     "cpu_s": 0.136,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 41
+     }
+    },
+    {
+     "game": "cq01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 120,
+     "cpu_s": 0.115,
+     "total_levels": 5,
+     "top_reasons": {
+      "decoded": 102,
+      "observed": 15,
+      "untried": 2,
+      "Dhia": 1
+     }
+    },
+    {
+     "game": "dl01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.445,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 65,
+      "untried": 30,
+      "Dhia": 20,
+      "decoded": 8
+     }
+    },
+    {
+     "game": "dungeon_key_hunt",
+     "levels_completed": 6,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 0.606,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 600
+     }
+    },
+    {
+     "game": "flood",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 484,
+     "cpu_s": 2.757,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 484
+     }
+    },
+    {
+     "game": "frog_crossing",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 360,
+     "cpu_s": 2.646,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 360
+     }
+    },
+    {
+     "game": "fs02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.326,
+     "total_levels": 5,
+     "top_reasons": {
+      "width-two": 58,
+      "observed": 49,
+      "Dhia": 32,
+      "decoded": 27
+     }
+    },
+    {
+     "game": "fs03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 394,
+     "cpu_s": 0.769,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 191,
+      "width-two": 106,
+      "Dhia": 65,
+      "untried": 32
+     }
+    },
+    {
+     "game": "gem_mine",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 570,
+     "cpu_s": 3.004,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 485,
+      "observed": 67,
+      "Dhia": 14,
+      "untried": 4
+     }
+    },
+    {
+     "game": "gp01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 26,
+     "cpu_s": 0.167,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 14,
+      "interactive": 12
+     }
+    },
+    {
+     "game": "ice_rink_stars",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 153,
+     "cpu_s": 0.178,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 153
+     }
+    },
+    {
+     "game": "klotski",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 179,
+     "cpu_s": 0.853,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 148,
+      "Dhia": 18,
+      "untried": 12,
+      "width-two": 1
+     }
+    },
+    {
+     "game": "maze",
+     "levels_completed": 6,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.381,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 572,
+      "untried": 22,
+      "Dhia": 6
+     }
+    },
+    {
+     "game": "mb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 81,
+     "cpu_s": 0.182,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 63,
+      "untried": 11,
+      "decoded": 7
+     }
+    },
+    {
+     "game": "mc:lamelightsout",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 107,
+     "cpu_s": 0.401,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 58,
+      "verified": 49
+     }
+    },
+    {
+     "game": "mm01",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.735,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "mm02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.52,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.526,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm04",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 198,
+     "cpu_s": 0.582,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 198
+     }
+    },
+    {
+     "game": "mm05",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.743,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "ms01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 158,
+     "cpu_s": 0.466,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 158
+     }
+    }
+   ],
+   "levels": 149,
+   "wins": 22,
+   "errors": 0
+  },
+  "ouellette_unseen25/generic": {
+   "suite": "ouellette_unseen25",
+   "arm": "generic",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "aquarium_sorter",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.571,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 346,
+      "untried": 244,
+      "reset": 10
+     }
+    },
+    {
+     "game": "badge_placement",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.648,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 472,
+      "observed": 77,
+      "untried": 30,
+      "width-two": 17
+     }
+    },
+    {
+     "game": "ball_sifting",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.598,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 308,
+      "untried": 282,
+      "reset": 10
+     }
+    },
+    {
+     "game": "balloon_festival",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.836,
+     "total_levels": 7,
+     "top_reasons": {
+      "Dhia": 401,
+      "width-two": 109,
+      "untried": 73,
+      "observed": 12
+     }
+    },
+    {
+     "game": "color_sorter",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.018,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 268,
+      "untried": 264,
+      "Dhia": 68
+     }
+    },
+    {
+     "game": "cq01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 95,
+     "cpu_s": 0.248,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 84,
+      "untried": 6,
+      "Dhia": 5
+     }
+    },
+    {
+     "game": "dl01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 108,
+     "cpu_s": 0.304,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 63,
+      "untried": 27,
+      "Dhia": 18
+     }
+    },
+    {
+     "game": "dungeon_key_hunt",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 296,
+     "cpu_s": 3.007,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 140,
+      "observed": 135,
+      "untried": 21
+     }
+    },
+    {
+     "game": "flood",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 484,
+     "cpu_s": 2.573,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 484
+     }
+    },
+    {
+     "game": "frog_crossing",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 360,
+     "cpu_s": 2.461,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 360
+     }
+    },
+    {
+     "game": "fs02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 208,
+     "cpu_s": 0.412,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 96,
+      "width-two": 58,
+      "Dhia": 33,
+      "untried": 21
+     }
+    },
+    {
+     "game": "fs03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 394,
+     "cpu_s": 0.763,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 191,
+      "width-two": 106,
+      "Dhia": 65,
+      "untried": 32
+     }
+    },
+    {
+     "game": "gem_mine",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 597,
+     "cpu_s": 3.004,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 512,
+      "observed": 67,
+      "Dhia": 14,
+      "untried": 4
+     }
+    },
+    {
+     "game": "gp01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 26,
+     "cpu_s": 0.144,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 14,
+      "interactive": 12
+     }
+    },
+    {
+     "game": "ice_rink_stars",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.925,
+     "total_levels": 7,
+     "top_reasons": {
+      "untried": 280,
+      "width-two": 276,
+      "Dhia": 27,
+      "observed": 16
+     }
+    },
+    {
+     "game": "klotski",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 179,
+     "cpu_s": 0.774,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 148,
+      "Dhia": 18,
+      "untried": 12,
+      "width-two": 1
+     }
+    },
+    {
+     "game": "maze",
+     "levels_completed": 6,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.338,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 572,
+      "untried": 22,
+      "Dhia": 6
+     }
+    },
+    {
+     "game": "mb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 70,
+     "cpu_s": 0.162,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 60,
+      "untried": 10
+     }
+    },
+    {
+     "game": "mc:lamelightsout",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 107,
+     "cpu_s": 0.378,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 58,
+      "verified": 49
+     }
+    },
+    {
+     "game": "mm01",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.717,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "mm02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.517,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.53,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm04",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 198,
+     "cpu_s": 0.529,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 198
+     }
+    },
+    {
+     "game": "mm05",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.694,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "ms01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 158,
+     "cpu_s": 0.418,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 158
+     }
+    }
+   ],
+   "levels": 113,
+   "wins": 16,
+   "errors": 0
+  },
+  "ouellette_unseen25/generic_nod4": {
+   "suite": "ouellette_unseen25",
+   "arm": "generic_nod4",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "aquarium_sorter",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.433,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 346,
+      "untried": 244,
+      "reset": 10
+     }
+    },
+    {
+     "game": "badge_placement",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.621,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 472,
+      "observed": 77,
+      "untried": 30,
+      "width-two": 17
+     }
+    },
+    {
+     "game": "ball_sifting",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.508,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 308,
+      "untried": 282,
+      "reset": 10
+     }
+    },
+    {
+     "game": "balloon_festival",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.748,
+     "total_levels": 7,
+     "top_reasons": {
+      "Dhia": 401,
+      "width-two": 109,
+      "untried": 73,
+      "observed": 12
+     }
+    },
+    {
+     "game": "color_sorter",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 0.96,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 268,
+      "untried": 264,
+      "Dhia": 68
+     }
+    },
+    {
+     "game": "cq01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 95,
+     "cpu_s": 0.267,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 84,
+      "untried": 6,
+      "Dhia": 5
+     }
+    },
+    {
+     "game": "dl01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 108,
+     "cpu_s": 0.29,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 63,
+      "untried": 27,
+      "Dhia": 18
+     }
+    },
+    {
+     "game": "dungeon_key_hunt",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 302,
+     "cpu_s": 3.044,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 141,
+      "context": 140,
+      "untried": 21
+     }
+    },
+    {
+     "game": "flood",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 484,
+     "cpu_s": 2.439,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 484
+     }
+    },
+    {
+     "game": "frog_crossing",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 360,
+     "cpu_s": 2.132,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 360
+     }
+    },
+    {
+     "game": "fs02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 208,
+     "cpu_s": 0.402,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 96,
+      "width-two": 58,
+      "Dhia": 33,
+      "untried": 21
+     }
+    },
+    {
+     "game": "fs03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 394,
+     "cpu_s": 0.706,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 191,
+      "width-two": 106,
+      "Dhia": 65,
+      "untried": 32
+     }
+    },
+    {
+     "game": "gem_mine",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.898,
+     "total_levels": 7,
+     "top_reasons": {
+      "context": 515,
+      "observed": 67,
+      "Dhia": 14,
+      "untried": 4
+     }
+    },
+    {
+     "game": "gp01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 26,
+     "cpu_s": 0.135,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 14,
+      "interactive": 12
+     }
+    },
+    {
+     "game": "ice_rink_stars",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.976,
+     "total_levels": 7,
+     "top_reasons": {
+      "untried": 280,
+      "width-two": 276,
+      "Dhia": 27,
+      "observed": 16
+     }
+    },
+    {
+     "game": "klotski",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 179,
+     "cpu_s": 0.734,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 148,
+      "Dhia": 18,
+      "untried": 12,
+      "width-two": 1
+     }
+    },
+    {
+     "game": "maze",
+     "levels_completed": 6,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.297,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 572,
+      "untried": 22,
+      "Dhia": 6
+     }
+    },
+    {
+     "game": "mb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 70,
+     "cpu_s": 0.16,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 60,
+      "untried": 10
+     }
+    },
+    {
+     "game": "mc:lamelightsout",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 107,
+     "cpu_s": 0.302,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 58,
+      "verified": 49
+     }
+    },
+    {
+     "game": "mm01",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.644,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "mm02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.448,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 172,
+     "cpu_s": 0.443,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 172
+     }
+    },
+    {
+     "game": "mm04",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 198,
+     "cpu_s": 0.478,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 198
+     }
+    },
+    {
+     "game": "mm05",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 268,
+     "cpu_s": 0.643,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 211,
+      "verified": 39,
+      "untried": 17,
+      "reset": 1
+     }
+    },
+    {
+     "game": "ms01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 158,
+     "cpu_s": 0.407,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 158
+     }
+    }
+   ],
+   "levels": 113,
+   "wins": 16,
+   "errors": 0
+  },
+  "ouellette_holdout25/full": {
+   "suite": "ouellette_holdout25",
+   "arm": "full",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "ms02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 147,
+     "cpu_s": 0.334,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 147
+     }
+    },
+    {
+     "game": "mx01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 80,
+     "cpu_s": 0.202,
+     "total_levels": 5,
+     "top_reasons": {
+      "Dhia": 41,
+      "decoded": 27,
+      "width-two": 6,
+      "untried": 5
+     }
+    },
+    {
+     "game": "nu01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.063,
+     "total_levels": 5,
+     "top_reasons": {
+      "decoded": 124
+     }
+    },
+    {
+     "game": "one_step_tetris",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 54,
+     "cpu_s": 0.049,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 54
+     }
+    },
+    {
+     "game": "paired_pieces",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 111,
+     "cpu_s": 0.281,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 111
+     }
+    },
+    {
+     "game": "pb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 83,
+     "cpu_s": 0.25,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 83
+     }
+    },
+    {
+     "game": "pb02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 115,
+     "cpu_s": 0.416,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 115
+     }
+    },
+    {
+     "game": "pb03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 79,
+     "cpu_s": 0.205,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 74,
+      "decoded": 5
+     }
+    },
+    {
+     "game": "potion_brewer",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 500,
+     "cpu_s": 2.501,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 441,
+      "decoded": 52,
+      "untried": 7
+     }
+    },
+    {
+     "game": "projectile_dodge",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 116,
+     "cpu_s": 0.219,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 116
+     }
+    },
+    {
+     "game": "ps:a_knights_tour",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 40,
+     "cpu_s": 0.063,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 40
+     }
+    },
+    {
+     "game": "ps:ad_infinitum_v0_4_2_implemented_highfloor_finished",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 11,
+     "cpu_s": 0.127,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 11
+     }
+    },
+    {
+     "game": "ps:add_man_2_this_time_its_arithmetical",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 9,
+     "cpu_s": 0.035,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 9
+     }
+    },
+    {
+     "game": "ps:aerobatics",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 9,
+     "cpu_s": 0.097,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 9
+     }
+    },
+    {
+     "game": "ps:alcazar",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 4,
+     "cpu_s": 0.023,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 4
+     }
+    },
+    {
+     "game": "ps:alley",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 3,
+     "cpu_s": 0.036,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 3
+     }
+    },
+    {
+     "game": "ps:amy",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 22,
+     "cpu_s": 0.047,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 22
+     }
+    },
+    {
+     "game": "ps:aperture_science_sokoban_testing_initiative",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 10,
+     "cpu_s": 0.117,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 10
+     }
+    },
+    {
+     "game": "ps:atlas_shrank_3",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 6,
+     "cpu_s": 0.066,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 6
+     }
+    },
+    {
+     "game": "ps:autumn",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 7,
+     "cpu_s": 0.079,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 7
+     }
+    },
+    {
+     "game": "ps:back_home",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 17,
+     "cpu_s": 0.067,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 17
+     }
+    },
+    {
+     "game": "ps:bad_example",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 32,
+     "cpu_s": 0.548,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 28,
+      "untried": 4
+     }
+    },
+    {
+     "game": "ps:baguettes",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 33,
+     "cpu_s": 0.167,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 33
+     }
+    },
+    {
+     "game": "ps:bal_rus_curse_cruelty_free_demake",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 53,
+     "cpu_s": 0.179,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 53
+     }
+    },
+    {
+     "game": "ps:ball_bros",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 29,
+     "cpu_s": 0.251,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 29
+     }
+    }
+   ],
+   "levels": 59,
+   "wins": 25,
+   "errors": 0
+  },
+  "ouellette_holdout25/no_astra": {
+   "suite": "ouellette_holdout25",
+   "arm": "no_astra",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "ms02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 147,
+     "cpu_s": 0.296,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 147
+     }
+    },
+    {
+     "game": "mx01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 80,
+     "cpu_s": 0.201,
+     "total_levels": 5,
+     "top_reasons": {
+      "Dhia": 41,
+      "decoded": 27,
+      "width-two": 6,
+      "untried": 5
+     }
+    },
+    {
+     "game": "nu01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.071,
+     "total_levels": 5,
+     "top_reasons": {
+      "decoded": 124
+     }
+    },
+    {
+     "game": "one_step_tetris",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 54,
+     "cpu_s": 0.051,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 54
+     }
+    },
+    {
+     "game": "paired_pieces",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 111,
+     "cpu_s": 0.279,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 111
+     }
+    },
+    {
+     "game": "pb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 83,
+     "cpu_s": 0.224,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 83
+     }
+    },
+    {
+     "game": "pb02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 115,
+     "cpu_s": 0.419,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 115
+     }
+    },
+    {
+     "game": "pb03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 79,
+     "cpu_s": 0.182,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 74,
+      "decoded": 5
+     }
+    },
+    {
+     "game": "potion_brewer",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 500,
+     "cpu_s": 2.503,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 441,
+      "decoded": 52,
+      "untried": 7
+     }
+    },
+    {
+     "game": "projectile_dodge",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 116,
+     "cpu_s": 0.234,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 116
+     }
+    },
+    {
+     "game": "ps:a_knights_tour",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 40,
+     "cpu_s": 0.063,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 40
+     }
+    },
+    {
+     "game": "ps:ad_infinitum_v0_4_2_implemented_highfloor_finished",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 11,
+     "cpu_s": 0.049,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 11
+     }
+    },
+    {
+     "game": "ps:add_man_2_this_time_its_arithmetical",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 9,
+     "cpu_s": 0.034,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 9
+     }
+    },
+    {
+     "game": "ps:aerobatics",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 9,
+     "cpu_s": 0.096,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 9
+     }
+    },
+    {
+     "game": "ps:alcazar",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 4,
+     "cpu_s": 0.022,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 4
+     }
+    },
+    {
+     "game": "ps:alley",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 3,
+     "cpu_s": 0.036,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 3
+     }
+    },
+    {
+     "game": "ps:amy",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 22,
+     "cpu_s": 0.049,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 22
+     }
+    },
+    {
+     "game": "ps:aperture_science_sokoban_testing_initiative",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 10,
+     "cpu_s": 0.057,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 10
+     }
+    },
+    {
+     "game": "ps:atlas_shrank_3",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 6,
+     "cpu_s": 0.066,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 6
+     }
+    },
+    {
+     "game": "ps:autumn",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 7,
+     "cpu_s": 0.059,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 7
+     }
+    },
+    {
+     "game": "ps:back_home",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 17,
+     "cpu_s": 0.07,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 17
+     }
+    },
+    {
+     "game": "ps:bad_example",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 32,
+     "cpu_s": 0.547,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 28,
+      "untried": 4
+     }
+    },
+    {
+     "game": "ps:baguettes",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 33,
+     "cpu_s": 0.165,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 33
+     }
+    },
+    {
+     "game": "ps:bal_rus_curse_cruelty_free_demake",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 53,
+     "cpu_s": 0.171,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 53
+     }
+    },
+    {
+     "game": "ps:ball_bros",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 29,
+     "cpu_s": 0.213,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 29
+     }
+    }
+   ],
+   "levels": 59,
+   "wins": 25,
+   "errors": 0
+  },
+  "ouellette_holdout25/generic": {
+   "suite": "ouellette_holdout25",
+   "arm": "generic",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "ms02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 147,
+     "cpu_s": 0.282,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 147
+     }
+    },
+    {
+     "game": "mx01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 145,
+     "cpu_s": 0.42,
+     "total_levels": 5,
+     "top_reasons": {
+      "Dhia": 113,
+      "width-two": 23,
+      "untried": 8,
+      "observed": 1
+     }
+    },
+    {
+     "game": "nu01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 144,
+     "cpu_s": 0.351,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 133,
+      "untried": 6,
+      "Dhia": 5
+     }
+    },
+    {
+     "game": "one_step_tetris",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.885,
+     "total_levels": 8,
+     "top_reasons": {
+      "width-two": 426,
+      "Dhia": 118,
+      "reset": 30,
+      "untried": 26
+     }
+    },
+    {
+     "game": "paired_pieces",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.756,
+     "total_levels": 7,
+     "top_reasons": {
+      "Dhia": 275,
+      "width-two": 156,
+      "context": 85,
+      "untried": 68
+     }
+    },
+    {
+     "game": "pb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 83,
+     "cpu_s": 0.185,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 83
+     }
+    },
+    {
+     "game": "pb02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 115,
+     "cpu_s": 0.405,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 115
+     }
+    },
+    {
+     "game": "pb03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 72,
+     "cpu_s": 0.181,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 72
+     }
+    },
+    {
+     "game": "potion_brewer",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 445,
+     "cpu_s": 2.304,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 438,
+      "untried": 7
+     }
+    },
+    {
+     "game": "projectile_dodge",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.119,
+     "total_levels": 7,
+     "top_reasons": {
+      "untried": 344,
+      "observed": 163,
+      "Dhia": 50,
+      "width-two": 24
+     }
+    },
+    {
+     "game": "ps:a_knights_tour",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.761,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 345,
+      "width-two": 244,
+      "reset": 11
+     }
+    },
+    {
+     "game": "ps:ad_infinitum_v0_4_2_implemented_highfloor_finished",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 262,
+     "cpu_s": 1.04,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 119,
+      "Dhia": 99,
+      "observed": 28,
+      "untried": 15
+     }
+    },
+    {
+     "game": "ps:add_man_2_this_time_its_arithmetical",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 41,
+     "cpu_s": 0.11,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 28,
+      "width-two": 13
+     }
+    },
+    {
+     "game": "ps:aerobatics",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.969,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 519,
+      "width-two": 43,
+      "observed": 36,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:alcazar",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 76,
+     "cpu_s": 0.389,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 35,
+      "width-two": 28,
+      "observed": 12,
+      "Dhia": 1
+     }
+    },
+    {
+     "game": "ps:alley",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 19,
+     "cpu_s": 0.131,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 16,
+      "width-two": 3
+     }
+    },
+    {
+     "game": "ps:amy",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.001,
+     "total_levels": null,
+     "top_reasons": {
+      "Dhia": 289,
+      "width-two": 268,
+      "untried": 41,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:aperture_science_sokoban_testing_initiative",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 94,
+     "cpu_s": 0.636,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 42,
+      "Dhia": 39,
+      "width-two": 13
+     }
+    },
+    {
+     "game": "ps:atlas_shrank_3",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 39,
+     "cpu_s": 0.345,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 20,
+      "untried": 14,
+      "Dhia": 5
+     }
+    },
+    {
+     "game": "ps:autumn",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 23,
+     "cpu_s": 0.113,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 13,
+      "Dhia": 6,
+      "width-two": 4
+     }
+    },
+    {
+     "game": "ps:back_home",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 380,
+     "cpu_s": 1.497,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 333,
+      "untried": 44,
+      "Dhia": 2,
+      "reset": 1
+     }
+    },
+    {
+     "game": "ps:bad_example",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 32,
+     "cpu_s": 0.57,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 28,
+      "untried": 4
+     }
+    },
+    {
+     "game": "ps:baguettes",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.801,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 295,
+      "Dhia": 280,
+      "untried": 23,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:bal_rus_curse_cruelty_free_demake",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.561,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 255,
+      "untried": 232,
+      "Dhia": 111,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:ball_bros",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.154,
+     "total_levels": null,
+     "top_reasons": {
+      "Dhia": 249,
+      "width-two": 238,
+      "untried": 111,
+      "reset": 2
+     }
+    }
+   ],
+   "levels": 43,
+   "wins": 16,
+   "errors": 0
+  },
+  "ouellette_holdout25/generic_nod4": {
+   "suite": "ouellette_holdout25",
+   "arm": "generic_nod4",
+   "budget_actions": 600,
+   "budget_cpu_s": 3.0,
+   "games": [
+    {
+     "game": "ms02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 147,
+     "cpu_s": 0.282,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 147
+     }
+    },
+    {
+     "game": "mx01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 145,
+     "cpu_s": 0.36,
+     "total_levels": 5,
+     "top_reasons": {
+      "Dhia": 113,
+      "width-two": 23,
+      "untried": 8,
+      "observed": 1
+     }
+    },
+    {
+     "game": "nu01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 144,
+     "cpu_s": 0.333,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 133,
+      "untried": 6,
+      "Dhia": 5
+     }
+    },
+    {
+     "game": "one_step_tetris",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.834,
+     "total_levels": 8,
+     "top_reasons": {
+      "width-two": 426,
+      "Dhia": 118,
+      "reset": 30,
+      "untried": 26
+     }
+    },
+    {
+     "game": "paired_pieces",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.758,
+     "total_levels": 7,
+     "top_reasons": {
+      "Dhia": 275,
+      "width-two": 156,
+      "context": 85,
+      "untried": 68
+     }
+    },
+    {
+     "game": "pb01",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 83,
+     "cpu_s": 0.181,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 83
+     }
+    },
+    {
+     "game": "pb02",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 115,
+     "cpu_s": 0.376,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 115
+     }
+    },
+    {
+     "game": "pb03",
+     "levels_completed": 5,
+     "win": true,
+     "actions": 72,
+     "cpu_s": 0.17,
+     "total_levels": 5,
+     "top_reasons": {
+      "observed": 72
+     }
+    },
+    {
+     "game": "potion_brewer",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 445,
+     "cpu_s": 2.301,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 438,
+      "untried": 7
+     }
+    },
+    {
+     "game": "projectile_dodge",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.05,
+     "total_levels": 7,
+     "top_reasons": {
+      "untried": 344,
+      "observed": 163,
+      "Dhia": 50,
+      "width-two": 24
+     }
+    },
+    {
+     "game": "ps:a_knights_tour",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.777,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 345,
+      "width-two": 244,
+      "reset": 11
+     }
+    },
+    {
+     "game": "ps:ad_infinitum_v0_4_2_implemented_highfloor_finished",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 262,
+     "cpu_s": 1.065,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 119,
+      "Dhia": 99,
+      "observed": 28,
+      "untried": 15
+     }
+    },
+    {
+     "game": "ps:add_man_2_this_time_its_arithmetical",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 41,
+     "cpu_s": 0.117,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 28,
+      "width-two": 13
+     }
+    },
+    {
+     "game": "ps:aerobatics",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.908,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 519,
+      "width-two": 43,
+      "observed": 36,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:alcazar",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 76,
+     "cpu_s": 0.339,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 35,
+      "width-two": 28,
+      "observed": 12,
+      "Dhia": 1
+     }
+    },
+    {
+     "game": "ps:alley",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 19,
+     "cpu_s": 0.113,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 16,
+      "width-two": 3
+     }
+    },
+    {
+     "game": "ps:amy",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.881,
+     "total_levels": null,
+     "top_reasons": {
+      "Dhia": 289,
+      "width-two": 268,
+      "untried": 41,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:aperture_science_sokoban_testing_initiative",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 94,
+     "cpu_s": 0.675,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 42,
+      "Dhia": 39,
+      "width-two": 13
+     }
+    },
+    {
+     "game": "ps:atlas_shrank_3",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 39,
+     "cpu_s": 0.334,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 20,
+      "untried": 14,
+      "Dhia": 5
+     }
+    },
+    {
+     "game": "ps:autumn",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 23,
+     "cpu_s": 0.115,
+     "total_levels": null,
+     "top_reasons": {
+      "untried": 13,
+      "Dhia": 6,
+      "width-two": 4
+     }
+    },
+    {
+     "game": "ps:back_home",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 380,
+     "cpu_s": 1.794,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 333,
+      "untried": 44,
+      "Dhia": 2,
+      "reset": 1
+     }
+    },
+    {
+     "game": "ps:bad_example",
+     "levels_completed": 0,
+     "win": true,
+     "actions": 32,
+     "cpu_s": 0.523,
+     "total_levels": null,
+     "top_reasons": {
+      "observed": 28,
+      "untried": 4
+     }
+    },
+    {
+     "game": "ps:baguettes",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.763,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 295,
+      "Dhia": 280,
+      "untried": 23,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:bal_rus_curse_cruelty_free_demake",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 1.525,
+     "total_levels": null,
+     "top_reasons": {
+      "width-two": 255,
+      "untried": 232,
+      "Dhia": 111,
+      "reset": 2
+     }
+    },
+    {
+     "game": "ps:ball_bros",
+     "levels_completed": 0,
+     "win": false,
+     "actions": 600,
+     "cpu_s": 2.357,
+     "total_levels": null,
+     "top_reasons": {
+      "Dhia": 249,
+      "width-two": 238,
+      "untried": 111,
+      "reset": 2
+     }
+    }
+   ],
+   "levels": 43,
+   "wins": 16,
+   "errors": 0
+  }
+ },
+ "exact_inventory": {
+  "exact_chain_length": 56,
+  "astra_entries": 6,
+  "non_astra_family_entries": 49,
+  "generic_kept": [
+   "CoupledMechanismSolver"
+  ],
+  "chain": [
+   {
+    "class": "AstraTail28Exact",
+    "module": "astra_ouellette_tail28_solvers",
+    "astra": true
+   },
+   {
+    "class": "AstraTufaAlgebraSolver",
+    "module": "astra_tufa_algebra_solvers",
+    "astra": true
+   },
+   {
+    "class": "AstraMotherTemplates1102",
+    "module": "astra_mother_templates_1102",
+    "astra": true
+   },
+   {
+    "class": "AstraTufaWebTemplates1102",
+    "module": "astra_tufa_web_templates_1102",
+    "astra": true
+   },
+   {
+    "class": "TierDrop",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "LaneGates",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "MirrorSwap",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "DropFit",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BadgeCarry",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "DoorKeys",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "Dodge",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "IceRink",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "PairedPieces",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "Balloons",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "QuadrantPush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "StuntFlight",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "RowSort",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "TwinBalls",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "KnightCapture",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BaguettePush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TFX_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_T3_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TCH_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TMV_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TRT_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUR_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUP_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUP_Glyph",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUF_GridPush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUC_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUS_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "EchoLoopSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BraidKeySolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "PaperDragonPots",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "CurrentRaft",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "RingFerries",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "SnakeNest",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "VatCharges",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AlcazarSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "ApertureSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AddManSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AdInfinitumSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AlleyPush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AtlasSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AutumnSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BackHomeSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_VAR_KeyTiles",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_VAR_Ducks",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_PWV_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "MirrorBots",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "StencilShapes",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "MorphShapes",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "GreyPorts",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "CoupledMechanismSolver",
+    "module": "giants_cross_level_transfer",
+    "astra": false
+   },
+   {
+    "class": "ParametricExact(AstraParametricPreviewSolver)",
+    "module": "astra_parametric_preview_solvers",
+    "astra": true
+   },
+   {
+    "class": "TemplateExact",
+    "module": "giants_world_model_planner",
+    "astra": true
+   }
+  ]
+ }
+}

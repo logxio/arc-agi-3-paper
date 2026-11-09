@@ -1,0 +1,66 @@
+{
+  "kaggle_v2": {
+    "runs": 25,
+    "max_abs_err": 4.535236842961865e-05,
+    "worst_game": "dc22-fdcac232",
+    "mean_recorded": 8.795603999999999,
+    "mean_recomputed": 8.795601533353794,
+    "n_err_gt_0.01": 0
+  },
+  "kaggle_v3": {
+    "runs": 25,
+    "max_abs_err": 3.5449735449333275e-05,
+    "worst_game": "cn04-2fe56bfb",
+    "mean_recorded": 3.122956,
+    "mean_recomputed": 3.1229602890003645,
+    "n_err_gt_0.01": 0
+  },
+  "kaggle_v4": {
+    "runs": 25,
+    "max_abs_err": 4.5679012345978265e-05,
+    "worst_game": "tu93-0768757b",
+    "mean_recorded": 6.37876,
+    "mean_recomputed": 6.3787583429618575,
+    "n_err_gt_0.01": 0
+  },
+  "kaggle_v5": {
+    "runs": 25,
+    "max_abs_err": 3.580246913603702e-05,
+    "worst_game": "tu93-0768757b",
+    "mean_recorded": 7.2945519999999995,
+    "mean_recomputed": 7.294550516585795,
+    "n_err_gt_0.01": 0
+  },
+  "kaggle_v7": {
+    "runs": 25,
+    "max_abs_err": 3.633217993070925e-05,
+    "worst_game": "vc33-5430563c",
+    "mean_recorded": 1.3673320000000002,
+    "mean_recomputed": 1.3673341588679242,
+    "n_err_gt_0.01": 0
+  },
+  "api_qwen38flash": {
+    "runs": 125,
+    "max_abs_err": 4.961463080288553e-05,
+    "worst_game": "g50t-5849a774",
+    "mean_recorded": 9.065641600000001,
+    "mean_recomputed": 9.065639714472036,
+    "n_err_gt_0.01": 0
+  },
+  "tufa_qwen36_27b": {
+    "runs": 500,
+    "max_abs_err": 4.920563064536587e-05,
+    "worst_game": "r11l-495a7899",
+    "mean_recorded": 1.6002034,
+    "mean_recomputed": 1.6002035367519523,
+    "n_err_gt_0.01": 0
+  },
+  "api_gptoss120b": {
+    "runs": 75,
+    "max_abs_err": 2.7777777777777777,
+    "worst_game": "lp85-305b61c3",
+    "mean_recorded": 0.1600133333333333,
+    "mean_recomputed": 0.231876710446189,
+    "n_err_gt_0.01": 2
+  }
+}

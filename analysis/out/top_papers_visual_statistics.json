@@ -1,0 +1,1463 @@
+{
+ "papers": {
+  "ours_before": {
+   "name": "Ours, before upgrade",
+   "sha256": "b3199f112e52c0523fb6ce7b92e8b8effec083919249f9340ec0a549fc62d4b0",
+   "pages": 12,
+   "main_pages_before_references": 4,
+   "geometry": {
+    "page_w_pt": 595.3,
+    "page_h_pt": 841.9,
+    "page_w_mm": 210.0,
+    "page_h_mm": 297.0,
+    "columns": 1,
+    "column_width_pt": 483.4,
+    "textblock_width_pt": 483.4,
+    "textblock_page_ratio": 0.812,
+    "left_margin_mm": 19.9,
+    "right_margin_mm": 19.6,
+    "chars_per_line_p50": 113.0,
+    "chars_per_line_p90": 119.0,
+    "leading_pt": 12.55,
+    "leading_ratio": 1.255
+   },
+   "type_scale": {
+    "body_font": "TeXGyreTermesX-Regular",
+    "body_size_pt": 10.0,
+    "title_size_pt": 17.2,
+    "title_font": "TeXGyreTermesX-Bold",
+    "title_bold": true,
+    "title_ratio": 1.72,
+    "h1_size_pt": 14.3,
+    "h2_size_pt": null,
+    "h1_ratio": 1.43,
+    "h2_ratio": null,
+    "h1_style": [
+     [
+      "TeXGyreTermesX-Bold",
+      "bold",
+      "mixed",
+      14
+     ]
+    ],
+    "h2_style": [],
+    "caption_size_pt": 9.0,
+    "caption_ratio": 0.9,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 7.4,
+    "mono_fonts": [
+     "LMMono10-Regular",
+     "LMMono8-Regular",
+     "LMMono9-Regular"
+    ],
+    "mono_char_share": 0.0738
+   },
+   "page_one": {
+    "title_rules_above": 0,
+    "title_rules_below": 0,
+    "title_rule_widths_pt": [],
+    "title_lines": 2,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 14.3,
+     "heading_bold": true,
+     "heading_centered": false,
+     "heading_case": "mixed",
+     "body_size_pt": 10.0,
+     "body_ratio": 1.0,
+     "inset_left_pt": -0.5,
+     "width_ratio": 1.001,
+     "background_or_box": false,
+     "lines": 18
+    },
+    "page1_figure": false,
+    "columns": 1
+   },
+   "tables": {
+    "count": 4,
+    "font_pt_median": 7.7,
+    "font_ratio_median": 0.77,
+    "row_pitch_ratio_median": 1.1,
+    "tables_with_row_fills": 0,
+    "numeric_col_alignment": {
+     "left": 9,
+     "right": 2
+    },
+    "rule_widths_pt": [
+     0.3,
+     0.5,
+     0.8
+    ],
+    "detail": [
+     {
+      "page": 2,
+      "rows": 23,
+      "cols": 7,
+      "font_pt": 8.0,
+      "font_ratio": 0.8,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 1,
+       "right": 1
+      },
+      "row_pitch_pt": 8.0,
+      "row_pitch_ratio": 1.0
+     },
+     {
+      "page": 3,
+      "rows": 23,
+      "cols": 7,
+      "font_pt": 8.0,
+      "font_ratio": 0.8,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 4
+      },
+      "row_pitch_pt": 6.5,
+      "row_pitch_ratio": 0.82
+     },
+     {
+      "page": 5,
+      "rows": 30,
+      "cols": 11,
+      "font_pt": 7.4,
+      "font_ratio": 0.74,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 1,
+       "right": 1
+      },
+      "row_pitch_pt": 8.9,
+      "row_pitch_ratio": 1.2
+     },
+     {
+      "page": 12,
+      "rows": 25,
+      "cols": 7,
+      "font_pt": 7.4,
+      "font_ratio": 0.74,
+      "rules": 7,
+      "rule_widths_pt": [
+       0.3,
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 3
+      },
+      "row_pitch_pt": 25.8,
+      "row_pitch_ratio": 3.48
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 3,
+    "main_body_figures": 2,
+    "appendix_figures": 1,
+    "architecture_or_overview_figures": [
+     "A1"
+    ],
+    "figure_1_page": 2,
+    "subpanels_per_main_figure": [
+     3,
+     3
+    ],
+    "subpanels_median": 3.0,
+    "in_figure_min_font_pt": 4.4,
+    "in_figure_p10_font_pt": 6.3,
+    "whitespace_ratio_textblock_median": 0.754,
+    "table_captions_total": 7
+   },
+   "callouts": {
+    "tinted_text_boxes": 0,
+    "left_bar_rules": 0,
+    "bold_callout_leads": {
+     "Proposition": 1
+    },
+    "mono_identifier_line_splits": 25,
+    "hyphenated_line_breaks": 1,
+    "hyphen_per_page": 0.08
+   }
+  },
+  "H_iclr2026_oral_micro": {
+   "name": "ICLR 2026 Oral, micro-benchmarking",
+   "sha256": "8cf15e193ebbdf9335561afa21d31769ba41bcd24ceb45d58b7460bcb02d3bee",
+   "pages": 24,
+   "main_pages_before_references": 24,
+   "geometry": {
+    "page_w_pt": 612.0,
+    "page_h_pt": 792.0,
+    "page_w_mm": 215.9,
+    "page_h_mm": 279.4,
+    "columns": 1,
+    "column_width_pt": 397.6,
+    "textblock_width_pt": 397.6,
+    "textblock_page_ratio": 0.65,
+    "left_margin_mm": 38.0,
+    "right_margin_mm": 37.7,
+    "chars_per_line_p50": 95.0,
+    "chars_per_line_p90": 100.0,
+    "leading_pt": 10.96,
+    "leading_ratio": 1.096
+   },
+   "type_scale": {
+    "body_font": "NimbusRomNo9L-Regu",
+    "body_size_pt": 10.0,
+    "title_size_pt": 20.0,
+    "title_font": "Times-Roman",
+    "title_bold": false,
+    "title_ratio": 2.0,
+    "h1_size_pt": 12.0,
+    "h2_size_pt": null,
+    "h1_ratio": 1.2,
+    "h2_ratio": null,
+    "h1_style": [
+     [
+      "NimbusRomNo9L-Regu",
+      "regular",
+      "small_caps",
+      18
+     ]
+    ],
+    "h2_style": [],
+    "caption_size_pt": 10.0,
+    "caption_ratio": 1.0,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 9.0,
+    "mono_fonts": [
+     "Inconsolatazi4-Regular"
+    ],
+    "mono_char_share": 0.0005
+   },
+   "page_one": {
+    "title_rules_above": 1,
+    "title_rules_below": 0,
+    "title_rule_widths_pt": [
+     0.4
+    ],
+    "title_lines": 1,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 9.6,
+     "heading_bold": false,
+     "heading_centered": true,
+     "heading_case": "upper",
+     "body_size_pt": 10.0,
+     "body_ratio": 1.0,
+     "inset_left_pt": 0.3,
+     "width_ratio": 0.998,
+     "background_or_box": false,
+     "lines": 40
+    },
+    "page1_figure": false,
+    "columns": 1
+   },
+   "tables": {
+    "count": 5,
+    "font_pt_median": 7.2,
+    "font_ratio_median": 0.72,
+    "row_pitch_ratio_median": 1.09,
+    "tables_with_row_fills": 0,
+    "numeric_col_alignment": {
+     "right": 3,
+     "left": 2,
+     "uniform": 14
+    },
+    "rule_widths_pt": [
+     0.31,
+     0.36,
+     0.37,
+     0.43,
+     0.5,
+     0.58,
+     0.59,
+     0.68
+    ],
+    "detail": [
+     {
+      "page": 5,
+      "rows": 5,
+      "cols": 4,
+      "font_pt": 7.4,
+      "font_ratio": 0.74,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.37,
+       0.59
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {},
+      "row_pitch_pt": 8.1,
+      "row_pitch_ratio": 1.09
+     },
+     {
+      "page": 16,
+      "rows": 8,
+      "cols": 6,
+      "font_pt": 7.2,
+      "font_ratio": 0.72,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.36,
+       0.58
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "right": 3,
+       "left": 2
+      },
+      "row_pitch_pt": 7.9,
+      "row_pitch_ratio": 1.1
+     },
+     {
+      "page": 16,
+      "rows": 14,
+      "cols": 7,
+      "font_pt": 7.2,
+      "font_ratio": 0.72,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.36,
+       0.58
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "uniform": 7
+      },
+      "row_pitch_pt": 7.6,
+      "row_pitch_ratio": 1.06
+     },
+     {
+      "page": 19,
+      "rows": 5,
+      "cols": 4,
+      "font_pt": 8.5,
+      "font_ratio": 0.85,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.43,
+       0.68
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "uniform": 3
+      },
+      "row_pitch_pt": 7.5,
+      "row_pitch_ratio": 0.88
+     },
+     {
+      "page": 20,
+      "rows": 6,
+      "cols": 5,
+      "font_pt": 6.3,
+      "font_ratio": 0.63,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.31,
+       0.5
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "uniform": 4
+      },
+      "row_pitch_pt": 8.0,
+      "row_pitch_ratio": 1.28
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 17,
+    "main_body_figures": 17,
+    "appendix_figures": 0,
+    "architecture_or_overview_figures": [],
+    "figure_1_page": 2,
+    "subpanels_per_main_figure": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "subpanels_median": 1,
+    "in_figure_min_font_pt": 3.3,
+    "in_figure_p10_font_pt": 3.3,
+    "whitespace_ratio_textblock_median": 0.672,
+    "table_captions_total": 5
+   },
+   "callouts": {
+    "tinted_text_boxes": 0,
+    "left_bar_rules": 0,
+    "bold_callout_leads": {},
+    "mono_identifier_line_splits": 0,
+    "hyphenated_line_breaks": 35,
+    "hyphen_per_page": 1.46
+   }
+  },
+  "N_vista_mit": {
+   "name": "VISTA, MIT (arXiv:2610.02200)",
+   "sha256": "40c95e5ebed5f50fe696462177a2561352027ef85fd28293dbd5e2cc221e838a",
+   "pages": 23,
+   "main_pages_before_references": 10,
+   "geometry": {
+    "page_w_pt": 612.0,
+    "page_h_pt": 792.0,
+    "page_w_mm": 215.9,
+    "page_h_mm": 279.4,
+    "columns": 1,
+    "column_width_pt": 468.0,
+    "textblock_width_pt": 468.0,
+    "textblock_page_ratio": 0.765,
+    "left_margin_mm": 25.4,
+    "right_margin_mm": 25.4,
+    "chars_per_line_p50": 112.0,
+    "chars_per_line_p90": 118.0,
+    "leading_pt": 10.96,
+    "leading_ratio": 1.096
+   },
+   "type_scale": {
+    "body_font": "NimbusRomNo9L-Regu",
+    "body_size_pt": 10.0,
+    "title_size_pt": 20.0,
+    "title_font": "NimbusRoman-Regular",
+    "title_bold": false,
+    "title_ratio": 2.0,
+    "h1_size_pt": 12.0,
+    "h2_size_pt": 10.0,
+    "h1_ratio": 1.2,
+    "h2_ratio": 1.0,
+    "h1_style": [
+     [
+      "NimbusRomNo9L-Medi",
+      "bold",
+      "mixed",
+      9
+     ]
+    ],
+    "h2_style": [
+     [
+      "NimbusRomNo9L-Medi",
+      "bold",
+      "mixed",
+      17
+     ]
+    ],
+    "caption_size_pt": 10.0,
+    "caption_ratio": 1.0,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 8.0,
+    "mono_fonts": [
+     "CMTT8",
+     "SFTT0800"
+    ],
+    "mono_char_share": 0.0383
+   },
+   "page_one": {
+    "title_rules_above": 0,
+    "title_rules_below": 0,
+    "title_rule_widths_pt": [],
+    "title_lines": 1,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 12.0,
+     "heading_bold": true,
+     "heading_centered": true,
+     "heading_case": "mixed",
+     "body_size_pt": 10.0,
+     "body_ratio": 1.0,
+     "inset_left_pt": 0.0,
+     "width_ratio": 1.0,
+     "background_or_box": false,
+     "lines": 49
+    },
+    "page1_figure": false,
+    "columns": 1
+   },
+   "tables": {
+    "count": 2,
+    "font_pt_median": 8.0,
+    "font_ratio_median": 0.8,
+    "row_pitch_ratio_median": 0.96,
+    "tables_with_row_fills": 0,
+    "numeric_col_alignment": {
+     "uniform": 3,
+     "right": 5,
+     "left": 1
+    },
+    "rule_widths_pt": [
+     0.5,
+     0.8
+    ],
+    "detail": [
+     {
+      "page": 5,
+      "rows": 17,
+      "cols": 7,
+      "font_pt": 7.0,
+      "font_ratio": 0.7,
+      "rules": 10,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "uniform": 1,
+       "right": 1
+      },
+      "row_pitch_pt": 8.3,
+      "row_pitch_ratio": 1.19
+     },
+     {
+      "page": 20,
+      "rows": 45,
+      "cols": 8,
+      "font_pt": 9.0,
+      "font_ratio": 0.9,
+      "rules": 4,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "right": 4,
+       "left": 1,
+       "uniform": 2
+      },
+      "row_pitch_pt": 6.6,
+      "row_pitch_ratio": 0.74
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 14,
+    "main_body_figures": 11,
+    "appendix_figures": 3,
+    "architecture_or_overview_figures": [
+     "3"
+    ],
+    "figure_1_page": 1,
+    "subpanels_per_main_figure": [
+     3,
+     1,
+     4,
+     1,
+     3,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "subpanels_median": 2,
+    "in_figure_min_font_pt": 6.4,
+    "in_figure_p10_font_pt": 6.4,
+    "whitespace_ratio_textblock_median": 0.698,
+    "table_captions_total": 2
+   },
+   "callouts": {
+    "tinted_text_boxes": 0,
+    "left_bar_rules": 0,
+    "bold_callout_leads": {},
+    "mono_identifier_line_splits": 11,
+    "hyphenated_line_breaks": 62,
+    "hyphen_per_page": 2.7
+   }
+  },
+  "K_trm_2025_winner": {
+   "name": "TRM, ARC Prize 2025 paper 1st (arXiv:2510.04871)",
+   "sha256": "c2b3ef5a8d6bc68e667aa01e8405dcfd9ebe88cfe1c6e58f04c5a6d652ce7af9",
+   "pages": 12,
+   "main_pages_before_references": 9,
+   "geometry": {
+    "page_w_pt": 612.0,
+    "page_h_pt": 792.0,
+    "page_w_mm": 215.9,
+    "page_h_mm": 279.4,
+    "columns": 2,
+    "column_width_pt": 236.0,
+    "textblock_width_pt": 488.0,
+    "textblock_page_ratio": 0.797,
+    "left_margin_mm": 19.4,
+    "right_margin_mm": 24.3,
+    "chars_per_line_p50": 52.0,
+    "chars_per_line_p90": 55.0,
+    "leading_pt": 11.96,
+    "leading_ratio": 1.184
+   },
+   "type_scale": {
+    "body_font": "URWPalladioL-Roma",
+    "body_size_pt": 10.1,
+    "title_size_pt": 20.0,
+    "title_font": "Times-Roman",
+    "title_bold": false,
+    "title_ratio": 1.98,
+    "h1_size_pt": 12.0,
+    "h2_size_pt": null,
+    "h1_ratio": 1.19,
+    "h2_ratio": null,
+    "h1_style": [
+     [
+      "URWPalladioL-Bold",
+      "bold",
+      "mixed",
+      3
+     ]
+    ],
+    "h2_style": [],
+    "caption_size_pt": 9.0,
+    "caption_ratio": 0.89,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 9.0,
+    "mono_fonts": [
+     "LMMono8-Regular"
+    ],
+    "mono_char_share": 0.0002
+   },
+   "page_one": {
+    "title_rules_above": 2,
+    "title_rules_below": 0,
+    "title_rule_widths_pt": [
+     1.0,
+     1.0
+    ],
+    "title_lines": 1,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 12.0,
+     "heading_bold": true,
+     "heading_centered": true,
+     "heading_case": "mixed",
+     "body_size_pt": 10.0,
+     "body_ratio": 0.99,
+     "inset_left_pt": 19.8,
+     "width_ratio": 0.831,
+     "background_or_box": false,
+     "lines": 21
+    },
+    "page1_figure": true,
+    "columns": 2
+   },
+   "tables": {
+    "count": 4,
+    "font_pt_median": 10.0,
+    "font_ratio_median": 0.99,
+    "row_pitch_ratio_median": 0.95,
+    "tables_with_row_fills": 0,
+    "numeric_col_alignment": {
+     "center": 6,
+     "left": 1,
+     "uniform": 8
+    },
+    "rule_widths_pt": [
+     0.4
+    ],
+    "detail": [
+     {
+      "page": 5,
+      "rows": 16,
+      "cols": 7,
+      "font_pt": 10.0,
+      "font_ratio": 0.99,
+      "rules": 4,
+      "rule_widths_pt": [
+       0.4
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "center": 1,
+       "left": 1,
+       "uniform": 3
+      },
+      "row_pitch_pt": 7.5,
+      "row_pitch_ratio": 0.75
+     },
+     {
+      "page": 6,
+      "rows": 5,
+      "cols": 3,
+      "font_pt": 10.0,
+      "font_ratio": 0.99,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.4
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "center": 1,
+       "uniform": 1
+      },
+      "row_pitch_pt": 9.7,
+      "row_pitch_ratio": 0.97
+     },
+     {
+      "page": 8,
+      "rows": 13,
+      "cols": 6,
+      "font_pt": 10.0,
+      "font_ratio": 0.99,
+      "rules": 7,
+      "rule_widths_pt": [
+       0.4
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "uniform": 4,
+       "center": 2
+      },
+      "row_pitch_pt": 9.3,
+      "row_pitch_ratio": 0.93
+     },
+     {
+      "page": 8,
+      "rows": 10,
+      "cols": 6,
+      "font_pt": 10.0,
+      "font_ratio": 0.99,
+      "rules": 13,
+      "rule_widths_pt": [
+       0.4
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "center": 2
+      },
+      "row_pitch_pt": 32.7,
+      "row_pitch_ratio": 3.27
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 6,
+    "main_body_figures": 3,
+    "appendix_figures": 3,
+    "architecture_or_overview_figures": [],
+    "figure_1_page": 1,
+    "subpanels_per_main_figure": [
+     1,
+     1,
+     1
+    ],
+    "subpanels_median": 1,
+    "in_figure_min_font_pt": 8.25,
+    "in_figure_p10_font_pt": 8.25,
+    "whitespace_ratio_textblock_median": 0.696,
+    "table_captions_total": 5
+   },
+   "callouts": {
+    "tinted_text_boxes": 0,
+    "left_bar_rules": 0,
+    "bold_callout_leads": {},
+    "mono_identifier_line_splits": 17,
+    "hyphenated_line_breaks": 120,
+    "hyphen_per_page": 10.0
+   }
+  },
+  "F_kepler": {
+   "name": "Kepler (arXiv:2610.00834)",
+   "sha256": "958444e8e5c1393058e76062dbe1727edf4ec3b17d0268c6ecfde7f239b87ac8",
+   "pages": 17,
+   "main_pages_before_references": 16,
+   "geometry": {
+    "page_w_pt": 612.0,
+    "page_h_pt": 792.0,
+    "page_w_mm": 215.9,
+    "page_h_mm": 279.4,
+    "columns": 1,
+    "column_width_pt": 470.2,
+    "textblock_width_pt": 470.2,
+    "textblock_page_ratio": 0.768,
+    "left_margin_mm": 25.3,
+    "right_margin_mm": 24.8,
+    "chars_per_line_p50": 95.0,
+    "chars_per_line_p90": 99.0,
+    "leading_pt": 13.55,
+    "leading_ratio": 1.243
+   },
+   "type_scale": {
+    "body_font": "LMRoman10-Regular",
+    "body_size_pt": 10.9,
+    "title_size_pt": 17.2,
+    "title_font": "LMRoman17-Regular",
+    "title_bold": false,
+    "title_ratio": 1.58,
+    "h1_size_pt": 14.3,
+    "h2_size_pt": 12.0,
+    "h1_ratio": 1.31,
+    "h2_ratio": 1.1,
+    "h1_style": [
+     [
+      "LMRoman12-Bold",
+      "bold",
+      "mixed",
+      8
+     ]
+    ],
+    "h2_style": [
+     [
+      "LMRoman12-Bold",
+      "bold",
+      "mixed",
+      20
+     ]
+    ],
+    "caption_size_pt": 10.9,
+    "caption_ratio": 1.0,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 10.0,
+    "mono_fonts": [
+     "LMMono10-Regular",
+     "LMMono9-Regular",
+     "DejaVuSansMono"
+    ],
+    "mono_char_share": 0.0259
+   },
+   "page_one": {
+    "title_rules_above": 0,
+    "title_rules_below": 0,
+    "title_rule_widths_pt": [],
+    "title_lines": 1,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 10.0,
+     "heading_bold": true,
+     "heading_centered": true,
+     "heading_case": "mixed",
+     "body_size_pt": 10.9,
+     "body_ratio": 1.0,
+     "inset_left_pt": 0.4,
+     "width_ratio": 0.998,
+     "background_or_box": false,
+     "lines": 33
+    },
+    "page1_figure": false,
+    "columns": 1
+   },
+   "tables": {
+    "count": 6,
+    "font_pt_median": 10.0,
+    "font_ratio_median": 0.92,
+    "row_pitch_ratio_median": 0.94,
+    "tables_with_row_fills": 0,
+    "numeric_col_alignment": {
+     "left": 1,
+     "uniform": 3,
+     "right": 4
+    },
+    "rule_widths_pt": [
+     0.49,
+     0.55,
+     0.79,
+     0.87
+    ],
+    "detail": [
+     {
+      "page": 3,
+      "rows": 22,
+      "cols": 3,
+      "font_pt": 10.9,
+      "font_ratio": 1.0,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.55,
+       0.87
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {},
+      "row_pitch_pt": 6.7,
+      "row_pitch_ratio": 0.61
+     },
+     {
+      "page": 5,
+      "rows": 12,
+      "cols": 7,
+      "font_pt": 9.8,
+      "font_ratio": 0.9,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.49,
+       0.79
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 1,
+       "uniform": 1
+      },
+      "row_pitch_pt": 9.0,
+      "row_pitch_ratio": 0.92
+     },
+     {
+      "page": 7,
+      "rows": 20,
+      "cols": 8,
+      "font_pt": 10.0,
+      "font_ratio": 0.92,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.55,
+       0.87
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "uniform": 2,
+       "right": 1
+      },
+      "row_pitch_pt": 11.3,
+      "row_pitch_ratio": 1.13
+     },
+     {
+      "page": 8,
+      "rows": 27,
+      "cols": 7,
+      "font_pt": 10.0,
+      "font_ratio": 0.92,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.55,
+       0.87
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "right": 1
+      },
+      "row_pitch_pt": 9.6,
+      "row_pitch_ratio": 0.96
+     },
+     {
+      "page": 9,
+      "rows": 14,
+      "cols": 8,
+      "font_pt": 9.0,
+      "font_ratio": 0.83,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.55,
+       0.87
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "right": 2
+      },
+      "row_pitch_pt": 10.2,
+      "row_pitch_ratio": 1.13
+     },
+     {
+      "page": 15,
+      "rows": 18,
+      "cols": 5,
+      "font_pt": 10.0,
+      "font_ratio": 0.92,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.55,
+       0.87
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {},
+      "row_pitch_pt": 8.6,
+      "row_pitch_ratio": 0.86
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 6,
+    "main_body_figures": 6,
+    "appendix_figures": 0,
+    "architecture_or_overview_figures": [
+     "2"
+    ],
+    "figure_1_page": 2,
+    "subpanels_per_main_figure": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "subpanels_median": 1.0,
+    "in_figure_min_font_pt": 8.35,
+    "in_figure_p10_font_pt": 8.35,
+    "whitespace_ratio_textblock_median": 0.734,
+    "table_captions_total": 6
+   },
+   "callouts": {
+    "tinted_text_boxes": 0,
+    "left_bar_rules": 0,
+    "bold_callout_leads": {},
+    "mono_identifier_line_splits": 6,
+    "hyphenated_line_breaks": 35,
+    "hyphen_per_page": 2.06
+   }
+  },
+  "BARC_2024_winner": {
+   "name": "BARC, ARC Prize 2024 paper 1st (arXiv:2411.02272)",
+   "sha256": "594af337f5b03281b4ab19750855978c19ad127f9a49b195c0d3461f31d278c9",
+   "pages": 46,
+   "main_pages_before_references": 46,
+   "geometry": {
+    "page_w_pt": 612.0,
+    "page_h_pt": 792.0,
+    "page_w_mm": 215.9,
+    "page_h_mm": 279.4,
+    "columns": 1,
+    "column_width_pt": 396.0,
+    "textblock_width_pt": 396.0,
+    "textblock_page_ratio": 0.647,
+    "left_margin_mm": 38.1,
+    "right_margin_mm": 38.1,
+    "chars_per_line_p50": 94.0,
+    "chars_per_line_p90": 100.0,
+    "leading_pt": 10.96,
+    "leading_ratio": 1.096
+   },
+   "type_scale": {
+    "body_font": "NimbusRomNo9L-Regu",
+    "body_size_pt": 10.0,
+    "title_size_pt": 20.0,
+    "title_font": "Times-Roman",
+    "title_bold": false,
+    "title_ratio": 2.0,
+    "h1_size_pt": 12.0,
+    "h2_size_pt": null,
+    "h1_ratio": 1.2,
+    "h2_ratio": null,
+    "h1_style": [
+     [
+      "NimbusRomNo9L-Regu",
+      "regular",
+      "small_caps",
+      14
+     ]
+    ],
+    "h2_style": [],
+    "caption_size_pt": 10.0,
+    "caption_ratio": 1.0,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 9.0,
+    "mono_fonts": [],
+    "mono_char_share": 0.0
+   },
+   "page_one": {
+    "title_rules_above": 1,
+    "title_rules_below": 0,
+    "title_rule_widths_pt": [
+     0.4
+    ],
+    "title_lines": 1,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 9.6,
+     "heading_bold": false,
+     "heading_centered": true,
+     "heading_case": "upper",
+     "body_size_pt": 10.0,
+     "body_ratio": 1.0,
+     "inset_left_pt": 0.0,
+     "width_ratio": 1.0,
+     "background_or_box": true,
+     "lines": 28
+    },
+    "page1_figure": true,
+    "columns": 1
+   },
+   "tables": {
+    "count": 3,
+    "font_pt_median": 10.0,
+    "font_ratio_median": 1.0,
+    "row_pitch_ratio_median": 1.08,
+    "tables_with_row_fills": 0,
+    "numeric_col_alignment": {
+     "center": 3,
+     "uniform": 1,
+     "right": 1
+    },
+    "rule_widths_pt": [
+     0.4,
+     0.5,
+     0.8
+    ],
+    "detail": [
+     {
+      "page": 7,
+      "rows": 3,
+      "cols": 3,
+      "font_pt": 10.0,
+      "font_ratio": 1.0,
+      "rules": 4,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {},
+      "row_pitch_pt": 30.7,
+      "row_pitch_ratio": 3.07
+     },
+     {
+      "page": 8,
+      "rows": 37,
+      "cols": 5,
+      "font_pt": 10.0,
+      "font_ratio": 1.0,
+      "rules": 9,
+      "rule_widths_pt": [
+       0.4,
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "center": 2
+      },
+      "row_pitch_pt": 7.1,
+      "row_pitch_ratio": 0.71
+     },
+     {
+      "page": 19,
+      "rows": 6,
+      "cols": 6,
+      "font_pt": 10.0,
+      "font_ratio": 1.0,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.5,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "center": 1,
+       "uniform": 1,
+       "right": 1
+      },
+      "row_pitch_pt": 10.8,
+      "row_pitch_ratio": 1.08
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 13,
+    "main_body_figures": 13,
+    "appendix_figures": 0,
+    "architecture_or_overview_figures": [
+     "3",
+     "4",
+     "12",
+     "13"
+    ],
+    "figure_1_page": 1,
+    "subpanels_per_main_figure": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "subpanels_median": 1,
+    "in_figure_min_font_pt": 9.0,
+    "in_figure_p10_font_pt": 9.0,
+    "whitespace_ratio_textblock_median": 0.824,
+    "table_captions_total": 3
+   },
+   "callouts": {
+    "tinted_text_boxes": 0,
+    "left_bar_rules": 0,
+    "bold_callout_leads": {
+     "Definition": 1
+    },
+    "mono_identifier_line_splits": 0,
+    "hyphenated_line_breaks": 85,
+    "hyphen_per_page": 1.85
+   }
+  },
+  "ours_current": {
+   "name": "Ours, current build",
+   "sha256": "5090b0f12c99d9e4ec620911d5950a35745e1c5edde29cef448a0e68d240d2e1",
+   "pages": 20,
+   "main_pages_before_references": 5,
+   "geometry": {
+    "page_w_pt": 595.3,
+    "page_h_pt": 841.9,
+    "page_w_mm": 210.0,
+    "page_h_mm": 297.0,
+    "columns": 1,
+    "column_width_pt": 459.9,
+    "textblock_width_pt": 459.9,
+    "textblock_page_ratio": 0.773,
+    "left_margin_mm": 24.0,
+    "right_margin_mm": 23.7,
+    "chars_per_line_p50": 112.0,
+    "chars_per_line_p90": 120.0,
+    "leading_pt": 11.36,
+    "leading_ratio": 1.195
+   },
+   "type_scale": {
+    "body_font": "TeXGyreTermesX-Regular",
+    "body_size_pt": 9.5,
+    "title_size_pt": 17.2,
+    "title_font": "TeXGyreTermesX-Bold",
+    "title_bold": true,
+    "title_ratio": 1.81,
+    "h1_size_pt": 12.0,
+    "h2_size_pt": null,
+    "h1_ratio": 1.26,
+    "h2_ratio": null,
+    "h1_style": [
+     [
+      "TeXGyreTermesX-Bold",
+      "bold",
+      "mixed",
+      14
+     ]
+    ],
+    "h2_style": [],
+    "caption_size_pt": 9.45,
+    "caption_ratio": 0.99,
+    "caption_label_bold_share": 0.0,
+    "footnote_size_pt": 7.6,
+    "mono_fonts": [
+     "Inconsolatazi4-Regular"
+    ],
+    "mono_char_share": 0.0041
+   },
+   "page_one": {
+    "title_rules_above": 1,
+    "title_rules_below": 1,
+    "title_rule_widths_pt": [
+     1.2,
+     0.5
+    ],
+    "title_lines": 2,
+    "abstract": {
+     "found": true,
+     "heading_size_pt": 10.0,
+     "heading_bold": true,
+     "heading_centered": true,
+     "heading_case": "mixed",
+     "body_size_pt": 9.149999999999999,
+     "body_ratio": 0.96,
+     "inset_left_pt": 28.9,
+     "width_ratio": 0.875,
+     "background_or_box": true,
+     "lines": 12
+    },
+    "page1_figure": true,
+    "columns": 1
+   },
+   "tables": {
+    "count": 6,
+    "font_pt_median": 7.6,
+    "font_ratio_median": 0.8,
+    "row_pitch_ratio_median": 2.02,
+    "tables_with_row_fills": 1,
+    "numeric_col_alignment": {
+     "right": 3,
+     "left": 5,
+     "center": 1,
+     "uniform": 1
+    },
+    "rule_widths_pt": [
+     0.3,
+     0.45,
+     0.7,
+     0.8
+    ],
+    "detail": [
+     {
+      "page": 3,
+      "rows": 14,
+      "cols": 11,
+      "font_pt": 7.6,
+      "font_ratio": 0.8,
+      "rules": 4,
+      "rule_widths_pt": [
+       0.3,
+       0.45,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "right": 2,
+       "left": 1,
+       "center": 1
+      },
+      "row_pitch_pt": 9.1,
+      "row_pitch_ratio": 1.2
+     },
+     {
+      "page": 3,
+      "rows": 9,
+      "cols": 4,
+      "font_pt": 6.8,
+      "font_ratio": 0.72,
+      "rules": 14,
+      "rule_widths_pt": [
+       0.7
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {},
+      "row_pitch_pt": 20.2,
+      "row_pitch_ratio": 2.96
+     },
+     {
+      "page": 3,
+      "rows": 9,
+      "cols": 4,
+      "font_pt": 6.8,
+      "font_ratio": 0.72,
+      "rules": 13,
+      "rule_widths_pt": [
+       0.7
+      ],
+      "row_fills": 2,
+      "numeric_col_alignment": {},
+      "row_pitch_pt": 19.4,
+      "row_pitch_ratio": 2.85
+     },
+     {
+      "page": 4,
+      "rows": 19,
+      "cols": 7,
+      "font_pt": 7.6,
+      "font_ratio": 0.8,
+      "rules": 3,
+      "rule_widths_pt": [
+       0.45,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 3
+      },
+      "row_pitch_pt": 6.4,
+      "row_pitch_ratio": 0.84
+     },
+     {
+      "page": 7,
+      "rows": 26,
+      "cols": 6,
+      "font_pt": 7.6,
+      "font_ratio": 0.8,
+      "rules": 7,
+      "rule_widths_pt": [
+       0.3,
+       0.45,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "right": 1
+      },
+      "row_pitch_pt": 22.8,
+      "row_pitch_ratio": 3.01
+     },
+     {
+      "page": 18,
+      "rows": 36,
+      "cols": 7,
+      "font_pt": 7.6,
+      "font_ratio": 0.8,
+      "rules": 4,
+      "rule_widths_pt": [
+       0.3,
+       0.45,
+       0.8
+      ],
+      "row_fills": 0,
+      "numeric_col_alignment": {
+       "left": 1,
+       "uniform": 1
+      },
+      "row_pitch_pt": 8.8,
+      "row_pitch_ratio": 1.16
+     }
+    ]
+   },
+   "figures": {
+    "figure_captions_total": 4,
+    "main_body_figures": 3,
+    "appendix_figures": 1,
+    "architecture_or_overview_figures": [
+     "2",
+     "A1"
+    ],
+    "figure_1_page": 2,
+    "subpanels_per_main_figure": [
+     3,
+     1,
+     3
+    ],
+    "subpanels_median": 3,
+    "in_figure_min_font_pt": 7.5,
+    "in_figure_p10_font_pt": 7.6,
+    "whitespace_ratio_textblock_median": 0.676,
+    "table_captions_total": 8
+   },
+   "callouts": {
+    "tinted_text_boxes": 6,
+    "left_bar_rules": 5,
+    "bold_callout_leads": {
+     "Proposition": 4,
+     "Observation": 1
+    },
+    "mono_identifier_line_splits": 0,
+    "hyphenated_line_breaks": 2,
+    "hyphen_per_page": 0.1
+   }
+  }
+ },
+ "single_column_benchmark_medians": {
+  "textblock_width_pt": 432.8,
+  "chars_per_line_p50": 95.0,
+  "leading_ratio": 1.096,
+  "left_margin_mm": 31.7,
+  "h1_ratio": 1.2,
+  "caption_ratio": 1.0,
+  "table_font_ratio": 0.8600000000000001,
+  "main_body_figures": 11,
+  "in_figure_min_font_pt": 8.25,
+  "papers": [
+   "H_iclr2026_oral_micro",
+   "N_vista_mit",
+   "F_kepler",
+   "BARC_2024_winner"
+  ]
+ }
+}

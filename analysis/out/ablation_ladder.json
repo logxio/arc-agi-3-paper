@@ -1,0 +1,1805 @@
+{
+ "ladder_runs": {
+  "public25/full": {
+   "suite": "public25",
+   "arm": "full",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.385,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 624,
+     "cpu_s": 11.075,
+     "total_levels": 9,
+     "top_reasons": {
+      "RisingFix": 521,
+      "observed": 92,
+      "reset": 11
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.269,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 266,
+     "cpu_s": 2.637,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 266
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 663,
+     "cpu_s": 5.86,
+     "total_levels": 6,
+     "top_reasons": {
+      "GravityFix": 663
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 77,
+     "cpu_s": 0.069,
+     "total_levels": 6,
+     "top_reasons": {
+      "visible": 77
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 1.211,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 389,
+     "cpu_s": 3.768,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 389
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 10,
+     "win": true,
+     "actions": 724,
+     "cpu_s": 8.415,
+     "total_levels": 10,
+     "top_reasons": {
+      "PegFix": 724
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 1.161,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 367,
+     "cpu_s": 2.252,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 367
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 1.271,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 2.172,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 538,
+     "cpu_s": 2.08,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 538
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 253,
+     "cpu_s": 5.948,
+     "total_levels": 8,
+     "top_reasons": {
+      "RodsFix": 253
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.493,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 142,
+     "cpu_s": 0.391,
+     "total_levels": 6,
+     "top_reasons": {
+      "SpellCorridors": 73,
+      "observed": 64,
+      "untried": 4,
+      "Dhia": 1
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 265,
+     "cpu_s": 2.194,
+     "total_levels": 8,
+     "top_reasons": {
+      "TelescopeFix": 265
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 130,
+     "cpu_s": 0.418,
+     "total_levels": 6,
+     "top_reasons": {
+      "ChannelsFix": 130
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 83,
+     "cpu_s": 1.961,
+     "total_levels": 9,
+     "top_reasons": {
+      "FusionFix": 83
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 95,
+     "cpu_s": 0.282,
+     "total_levels": 7,
+     "top_reasons": {
+      "BitPrograms": 95
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.731,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.922,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 2.564,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 5.897,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 183,
+   "wins": 25,
+   "errors": 0
+  },
+  "public25/no_astra": {
+   "suite": "public25",
+   "arm": "no_astra",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.413,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 6.416,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 840,
+      "observed": 189,
+      "Dhia": 134,
+      "untried": 20
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.449,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 266,
+     "cpu_s": 2.982,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 266
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.798,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 981,
+      "Dhia": 128,
+      "learned": 62,
+      "remote": 20
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 82,
+     "cpu_s": 0.289,
+     "total_levels": 6,
+     "top_reasons": {
+      "Ouellette": 79,
+      "observed": 3
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 1.31,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 391,
+     "cpu_s": 4.013,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 391
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.471,
+     "total_levels": 10,
+     "top_reasons": {
+      "width-two": 1078,
+      "Dhia": 56,
+      "untried": 55,
+      "observed": 8
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 1.241,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 367,
+     "cpu_s": 2.382,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 367
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 1.155,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 2.14,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 538,
+     "cpu_s": 2.292,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 538
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 5,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.819,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 928,
+      "arm": 213,
+      "width-two": 41,
+      "untried": 12
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.559,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 6.031,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 418,
+      "untried": 367,
+      "Dhia": 263,
+      "observed": 138
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 6.078,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 851,
+      "width-two": 266,
+      "observed": 61,
+      "untried": 17
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.579,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 603,
+      "Dhia": 548,
+      "reset": 30,
+      "untried": 19
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.039,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 950,
+      "untried": 234,
+      "reset": 16
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.497,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 1101,
+      "untried": 81,
+      "reset": 18
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.691,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.96,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 1.97,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 4.726,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 134,
+   "wins": 16,
+   "errors": 0
+  },
+  "public25/generic": {
+   "suite": "public25",
+   "arm": "generic",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 1.07,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.572,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 840,
+      "observed": 189,
+      "Dhia": 134,
+      "untried": 20
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.183,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.358,
+     "total_levels": 6,
+     "top_reasons": {
+      "Dhia": 716,
+      "width-two": 392,
+      "observed": 45,
+      "untried": 38
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.61,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 981,
+      "Dhia": 128,
+      "learned": 62,
+      "remote": 20
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 82,
+     "cpu_s": 0.213,
+     "total_levels": 6,
+     "top_reasons": {
+      "Ouellette": 79,
+      "observed": 3
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 1.111,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 389,
+     "cpu_s": 3.639,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 389
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.619,
+     "total_levels": 10,
+     "top_reasons": {
+      "width-two": 1078,
+      "Dhia": 56,
+      "untried": 55,
+      "observed": 8
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 0.954,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 369,
+     "cpu_s": 2.092,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 369
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.606,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 533,
+      "untried": 328,
+      "Dhia": 294,
+      "observed": 38
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 1.975,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.156,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 497,
+      "observed": 284,
+      "untried": 264,
+      "width-two": 150
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 5,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.731,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 928,
+      "arm": 213,
+      "width-two": 41,
+      "untried": 12
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.393,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.899,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 418,
+      "untried": 367,
+      "Dhia": 263,
+      "observed": 138
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.849,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 851,
+      "width-two": 266,
+      "observed": 61,
+      "untried": 17
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.216,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 603,
+      "Dhia": 548,
+      "reset": 30,
+      "untried": 19
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 2.737,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 950,
+      "untried": 234,
+      "reset": 16
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.098,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 1101,
+      "untried": 81,
+      "reset": 18
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.46,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.714,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 1.907,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 2.327,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 120,
+   "wins": 13,
+   "errors": 0
+  },
+  "public25/generic_nod4": {
+   "suite": "public25",
+   "arm": "generic_nod4",
+   "budget_actions": 1200,
+   "budget_cpu_s": 12.0,
+   "games": [
+    {
+     "game": "ar25",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 288,
+     "cpu_s": 0.978,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 288
+     }
+    },
+    {
+     "game": "bp35",
+     "levels_completed": 3,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.246,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 840,
+      "observed": 189,
+      "Dhia": 134,
+      "untried": 20
+     }
+    },
+    {
+     "game": "cd82",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 78,
+     "cpu_s": 0.142,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 78
+     }
+    },
+    {
+     "game": "cn04",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.956,
+     "total_levels": 6,
+     "top_reasons": {
+      "Dhia": 716,
+      "width-two": 392,
+      "observed": 45,
+      "untried": 38
+     }
+    },
+    {
+     "game": "dc22",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.336,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 981,
+      "Dhia": 128,
+      "learned": 62,
+      "remote": 20
+     }
+    },
+    {
+     "game": "ft09",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 82,
+     "cpu_s": 0.189,
+     "total_levels": 6,
+     "top_reasons": {
+      "Ouellette": 79,
+      "observed": 3
+     }
+    },
+    {
+     "game": "g50t",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 285,
+     "cpu_s": 0.932,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 285
+     }
+    },
+    {
+     "game": "ka59",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 385,
+     "cpu_s": 3.114,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 385
+     }
+    },
+    {
+     "game": "lf52",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.163,
+     "total_levels": 10,
+     "top_reasons": {
+      "width-two": 1078,
+      "Dhia": 56,
+      "untried": 55,
+      "observed": 8
+     }
+    },
+    {
+     "game": "lp85",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 256,
+     "cpu_s": 0.779,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 180,
+      "learned": 76
+     }
+    },
+    {
+     "game": "ls20",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 367,
+     "cpu_s": 2.221,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 367
+     }
+    },
+    {
+     "game": "m0r0",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.138,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 533,
+      "untried": 328,
+      "Dhia": 294,
+      "observed": 38
+     }
+    },
+    {
+     "game": "r11l",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 169,
+     "cpu_s": 1.65,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 140,
+      "width-two": 14,
+      "untried": 13,
+      "reset": 2
+     }
+    },
+    {
+     "game": "re86",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.064,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 497,
+      "observed": 284,
+      "untried": 264,
+      "width-two": 150
+     }
+    },
+    {
+     "game": "s5i5",
+     "levels_completed": 5,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.704,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 928,
+      "arm": 213,
+      "width-two": 41,
+      "untried": 12
+     }
+    },
+    {
+     "game": "sb26",
+     "levels_completed": 8,
+     "win": true,
+     "actions": 124,
+     "cpu_s": 0.32,
+     "total_levels": 8,
+     "top_reasons": {
+      "observed": 124
+     }
+    },
+    {
+     "game": "sc25",
+     "levels_completed": 4,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.748,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 418,
+      "untried": 367,
+      "Dhia": 263,
+      "observed": 138
+     }
+    },
+    {
+     "game": "sk48",
+     "levels_completed": 2,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 5.059,
+     "total_levels": 8,
+     "top_reasons": {
+      "Dhia": 851,
+      "width-two": 266,
+      "observed": 61,
+      "untried": 17
+     }
+    },
+    {
+     "game": "sp80",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 4.201,
+     "total_levels": 6,
+     "top_reasons": {
+      "width-two": 603,
+      "Dhia": 548,
+      "reset": 30,
+      "untried": 19
+     }
+    },
+    {
+     "game": "su15",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 2.343,
+     "total_levels": 9,
+     "top_reasons": {
+      "width-two": 950,
+      "untried": 234,
+      "reset": 16
+     }
+    },
+    {
+     "game": "tn36",
+     "levels_completed": 1,
+     "win": false,
+     "actions": 1200,
+     "cpu_s": 3.78,
+     "total_levels": 7,
+     "top_reasons": {
+      "width-two": 1101,
+      "untried": 81,
+      "reset": 18
+     }
+    },
+    {
+     "game": "tr87",
+     "levels_completed": 6,
+     "win": true,
+     "actions": 345,
+     "cpu_s": 1.237,
+     "total_levels": 6,
+     "top_reasons": {
+      "observed": 345
+     }
+    },
+    {
+     "game": "tu93",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 185,
+     "cpu_s": 0.744,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 185
+     }
+    },
+    {
+     "game": "vc33",
+     "levels_completed": 7,
+     "win": true,
+     "actions": 182,
+     "cpu_s": 1.863,
+     "total_levels": 7,
+     "top_reasons": {
+      "observed": 182
+     }
+    },
+    {
+     "game": "wa30",
+     "levels_completed": 9,
+     "win": true,
+     "actions": 691,
+     "cpu_s": 2.178,
+     "total_levels": 9,
+     "top_reasons": {
+      "observed": 691
+     }
+    }
+   ],
+   "levels": 120,
+   "wins": 13,
+   "errors": 0
+  }
+ },
+ "exact_inventory": {
+  "exact_chain_length": 56,
+  "astra_entries": 6,
+  "non_astra_family_entries": 49,
+  "generic_kept": [
+   "CoupledMechanismSolver"
+  ],
+  "chain": [
+   {
+    "class": "AstraTail28Exact",
+    "module": "astra_ouellette_tail28_solvers",
+    "astra": true
+   },
+   {
+    "class": "AstraTufaAlgebraSolver",
+    "module": "astra_tufa_algebra_solvers",
+    "astra": true
+   },
+   {
+    "class": "AstraMotherTemplates1102",
+    "module": "astra_mother_templates_1102",
+    "astra": true
+   },
+   {
+    "class": "AstraTufaWebTemplates1102",
+    "module": "astra_tufa_web_templates_1102",
+    "astra": true
+   },
+   {
+    "class": "TierDrop",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "LaneGates",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "MirrorSwap",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "DropFit",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BadgeCarry",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "DoorKeys",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "Dodge",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "IceRink",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "PairedPieces",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "Balloons",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "QuadrantPush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "StuntFlight",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "RowSort",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "TwinBalls",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "KnightCapture",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BaguettePush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TFX_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_T3_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TCH_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TMV_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TRT_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUR_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUP_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUP_Glyph",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUF_GridPush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUC_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_TUS_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "EchoLoopSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BraidKeySolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "PaperDragonPots",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "CurrentRaft",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "RingFerries",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "SnakeNest",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "VatCharges",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AlcazarSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "ApertureSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AddManSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AdInfinitumSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AlleyPush",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AtlasSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "AutumnSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "BackHomeSolver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_VAR_KeyTiles",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_VAR_Ducks",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "_PWV_Solver",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "MirrorBots",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "StencilShapes",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "MorphShapes",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "GreyPorts",
+    "module": "giants_unseen_generalizer",
+    "astra": false
+   },
+   {
+    "class": "CoupledMechanismSolver",
+    "module": "giants_cross_level_transfer",
+    "astra": false
+   },
+   {
+    "class": "ParametricExact(AstraParametricPreviewSolver)",
+    "module": "astra_parametric_preview_solvers",
+    "astra": true
+   },
+   {
+    "class": "TemplateExact",
+    "module": "giants_world_model_planner",
+    "astra": true
+   }
+  ]
+ },
+ "hidden110": {
+  "backbone_12": {
+   "refs": [
+    57252762,
+    57160178,
+    57123146,
+    57088910,
+    57059845,
+    57031236,
+    56980083,
+    56927381,
+    56901733,
+    56877896,
+    56837065,
+    56751129
+   ],
+   "scores": [
+    26.58,
+    21.22,
+    23.72,
+    23.33,
+    21.39,
+    28.38,
+    24.13,
+    24.12,
+    26.04,
+    23.49,
+    25.83,
+    27.2
+   ],
+   "n": 12,
+   "mean": 24.6192,
+   "sd": 2.2228,
+   "min": 21.22,
+   "max": 28.38,
+   "ci95_mean": [
+    23.207,
+    26.031
+   ],
+   "diff_noise_sd_two_single_runs": 3.1435
+  },
+  "backbone_vs_duck_v2": {
+   "inputs": {
+    "w4a16_36k": "24.62\u00b12.22 (n=12)",
+    "duck_v2": "2.81\u00b10.66 (n=6, peak 3.41)"
+   },
+   "mean_difference": 21.809,
+   "welch_t": 31.3374,
+   "welch_df": 14.25,
+   "welch_p_two_sided": 1.5136769546419895e-14,
+   "cohen_d_pooled": 11.6,
+   "hedges_g": 11.05,
+   "mann_whitney_U": 72,
+   "mann_whitney_p_two_sided_exact": 0.00010773540185304891,
+   "note_mw": "U = n1*n2 = 72 follows from min(36K) 21.22 > max(Duck) 3.41; p is the exact complete-separation value 2/C(18,6).",
+   "peak_ratio": 8.323,
+   "mean_ratio": 8.761
+  },
+  "single_runs_vs_backbone": {
+   "14k_cap_57774685": {
+    "score": 9.39,
+    "delta_vs_mean": -15.2292,
+    "z_sd_units": -6.8513,
+    "prediction_t": -6.5825,
+    "df": 11,
+    "p_two_sided_prediction_t": 3.956627580812693e-05,
+    "p_one_sided_below": 1.9783137904063464e-05,
+    "p_two_sided_normal_z": 7.318704945367237e-12,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "14k_convex_kill_57786717": {
+    "score": 7.72,
+    "delta_vs_mean": -16.8992,
+    "z_sd_units": -7.6026,
+    "prediction_t": -7.3043,
+    "df": 11,
+    "p_two_sided_prediction_t": 1.5344160026562406e-05,
+    "p_one_sided_below": 7.672080013281203e-06,
+    "p_two_sided_normal_z": 2.9026506913443444e-14,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "open_loop_600_57854657": {
+    "score": 20.76,
+    "delta_vs_mean": -3.8592,
+    "z_sd_units": -1.7362,
+    "prediction_t": -1.668,
+    "df": 11,
+    "p_two_sided_prediction_t": 0.1234901528427453,
+    "p_one_sided_below": 0.06174507642137265,
+    "p_two_sided_normal_z": 0.08253555415835254,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "reactive_224_57894564": {
+    "score": 21.08,
+    "delta_vs_mean": -3.5392,
+    "z_sd_units": -1.5922,
+    "prediction_t": -1.5297,
+    "df": 11,
+    "p_two_sided_prediction_t": 0.15431703506072067,
+    "p_one_sided_below": 0.07715851753036033,
+    "p_two_sided_normal_z": 0.11134010471375066,
+    "below_min_of_12": true,
+    "above_max_of_12": false
+   },
+   "cert_gated_57827241": {
+    "score": 25.7,
+    "delta_vs_mean": 1.0808,
+    "z_sd_units": 0.4862,
+    "prediction_t": 0.4672,
+    "df": 11,
+    "p_two_sided_prediction_t": 0.6494965530748549,
+    "p_one_sided_below": 0.6752517234625726,
+    "p_two_sided_normal_z": 0.6267936412350398,
+    "below_min_of_12": false,
+    "above_max_of_12": false
+   }
+  },
+  "pairwise": [
+   {
+    "pair": "cert-gated 25.70 vs open-loop 20.76",
+    "delta": 4.94,
+    "delta_in_backbone_sd": 2.222,
+    "z_two_run_noise": 1.571,
+    "p_one_sided_t11": 0.07218628929918242,
+    "p_two_sided_t11": 0.14437257859836483
+   },
+   {
+    "pair": "cert-gated 25.70 vs reactive-224 21.08",
+    "delta": 4.62,
+    "delta_in_backbone_sd": 2.078,
+    "z_two_run_noise": 1.47,
+    "p_one_sided_t11": 0.08483047305260398,
+    "p_two_sided_t11": 0.16966094610520796
+   },
+   {
+    "pair": "reactive-224 21.08 vs open-loop 20.76",
+    "delta": 0.32,
+    "delta_in_backbone_sd": 0.144,
+    "z_two_run_noise": 0.102,
+    "p_one_sided_t11": 0.46037520904154094,
+    "p_two_sided_t11": 0.9207504180830819
+   },
+   {
+    "pair": "convex kill 7.72 vs 14K 9.39",
+    "delta": -1.67,
+    "delta_in_backbone_sd": -0.751,
+    "z_two_run_noise": -0.531,
+    "p_one_sided_t11": 0.6970962395837721,
+    "p_two_sided_t11": 0.6058075208324558
+   }
+  ],
+  "rank_tests": {
+   "uncertified_two_runs_vs_backbone_12": {
+    "ranks_among_14": [
+     1,
+     2
+    ],
+    "rank_sum": 3,
+    "mann_whitney_U": 0,
+    "p_one_sided_exact": 0.01098901098901099,
+    "reading": "Both uncertified-bridge runs (20.76, 21.08) fall below all 12 backbone runs (min 21.22)."
+   },
+   "cert_gated_rank_among_13": {
+    "rank": 8,
+    "of": 13,
+    "p_two_sided_exact": 0.9230769230769231,
+    "reading": "The certificate-gated run sits inside the backbone distribution."
+   }
+  },
+  "brief_convention_check": {
+   "cert_vs_open_loop_delta_over_s": 2.222,
+   "p_one_sided_normal_at_that_z": 0.01312798327413001,
+   "cert_vs_reactive_delta_over_s": 2.078,
+   "p_one_sided_normal_at_that_z_reactive": 0.018834274875825632,
+   "cert_vs_mean_delta_over_s": 0.486
+  }
+ },
+ "wording_hits": [
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 9,
+   "term": "proves",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": ", under $(b_l/a_l)^2$, Chebyshev's order identity proves $k$ failed probes dilute score by $D(k)\\le S_0\\ma"
+  },
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 15,
+   "term": "prove",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "We separate serving from world-model gating [15], prove why cutoffs and uncertified probes [3,6] backfire"
+  },
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 98,
+   "term": "Proofs",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "24. Algebraic World Model: From Exploration to Proofs. arXiv:2610.40503, 2026."
+  },
+  {
+   "file": "paper/frontier-lock.md",
+   "line": 102,
+   "term": "Theorem",
+   "replace_with": "Observation (or Proposition only for the renewal-reward / lattice results)",
+   "context": " E. Charnov. Optimal Foraging, the Marginal Value Theorem. Theoretical Population Biology 9(2):129-136, 197"
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 71,
+   "term": "Proofs",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "newal-Reward Theory, and Quadratic Probe-Dilution Proofs"
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 92,
+   "term": "Proof",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "*Proof.* In ARCBaseGame, RESET restores the initial leve"
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 313,
+   "term": "prove",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "e_impossibility.json and clone_certificates.json) prove that an early or final map has no reachable goal "
+  },
+  {
+   "file": "paper/appendix.md",
+   "line": 346,
+   "term": "proof",
+   "replace_with": "shows / demonstrates; \"proofs\" -> \"derivations\"",
+   "context": "03) | 25 public games | Cloud API + Lean | Formal proof on public 25 | None | No |"
+  }
+ ],
+ "meta": {
+  "script_sha256": "6471148ed3c06b1d9f4773186e6ea5c666def6979a2a0f0c2ab4d7d984afd6a3",
+  "planner_sha256": "65d8bcefb9307f5d0e6c52ceefc80d53fd740f906e72faeac7b34ca662c92e58",
+  "max_rss_bytes": 410583040,
+  "runtime_s_this_call": 296.0
+ },
+ "archive_provenance": {
+  "source_sha256": "71665114de03fff2df3a37ec91cb28cf0c0428dc3d77f17d9c6858b98ee4cf7d",
+  "mode": "S39b fresh four-arm engine rerun",
+  "legacy_manuscript_arm": "analysis/out/component_ablation_ladder.json",
+  "note": "The historical 180L/24W arm remains in its original ledger; these fresh rows total 183L/25W."
+ }
+}

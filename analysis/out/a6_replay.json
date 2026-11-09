@@ -1,0 +1,330 @@
+{
+  "kaggle_v2": {
+    "mean_score": 8.795601533353793,
+    "stop": {
+      "50": {
+        "mean_score": 8.184024967719186,
+        "score_kept": 0.9304679090662022,
+        "score_kept_ci": [
+          0.8243748330026859,
+          0.9812961299856978
+        ],
+        "actions_released": 0.6420161883738043,
+        "global_cap": 81,
+        "global_cap_score_kept": 0.6323461968149265,
+        "global_cap_released": 0.6416482707873437
+      },
+      "80": {
+        "mean_score": 8.412705522353287,
+        "score_kept": 0.9564673309098274,
+        "score_kept_ci": [
+          0.87258217619035,
+          0.9956687913741288
+        ],
+        "actions_released": 0.5057027225901398,
+        "global_cap": 116,
+        "global_cap_score_kept": 0.8707905904698406,
+        "global_cap_released": 0.5126931567328918
+      },
+      "150": {
+        "mean_score": 8.719101037017982,
+        "score_kept": 0.9913024145027814,
+        "score_kept_ci": [
+          0.9646562797396196,
+          1.0000000000000002
+        ],
+        "actions_released": 0.29396615158204564,
+        "global_cap": 191,
+        "global_cap_score_kept": 0.9913024145027814,
+        "global_cap_released": 0.29635761589403975
+      }
+    }
+  },
+  "kaggle_v3": {
+    "mean_score": 3.1229602890003645,
+    "stop": {
+      "50": {
+        "mean_score": 2.843595209635285,
+        "score_kept": 0.9105447865126385,
+        "score_kept_ci": [
+          0.7798480999899835,
+          0.9999999999999999
+        ],
+        "actions_released": 0.20052083333333337,
+        "global_cap": 61,
+        "global_cap_score_kept": 0.9715369775267486,
+        "global_cap_released": 0.193359375
+      },
+      "80": {
+        "mean_score": 3.122960289000364,
+        "score_kept": 0.9999999999999999,
+        "score_kept_ci": [
+          0.9999999999999997,
+          1.0000000000000002
+        ],
+        "actions_released": 0.05859375,
+        "global_cap": 96,
+        "global_cap_score_kept": 0.9999999999999999,
+        "global_cap_released": 0.05338541666666663
+      },
+      "150": {
+        "mean_score": 3.122960289000364,
+        "score_kept": 0.9999999999999999,
+        "score_kept_ci": [
+          0.9999999999999997,
+          1.0000000000000002
+        ],
+        "actions_released": 0.0,
+        "global_cap": 121,
+        "global_cap_score_kept": 0.9999999999999999,
+        "global_cap_released": 0.00390625
+      }
+    }
+  },
+  "kaggle_v4": {
+    "mean_score": 6.3787583429618575,
+    "stop": {
+      "50": {
+        "mean_score": 5.368706108706108,
+        "score_kept": 0.8416537859017322,
+        "score_kept_ci": [
+          0.6173735799737565,
+          0.9962697326959152
+        ],
+        "actions_released": 0.5003021148036253,
+        "global_cap": 71,
+        "global_cap_score_kept": 0.8025360300234871,
+        "global_cap_released": 0.49667673716012084
+      },
+      "80": {
+        "mean_score": 6.249869816792893,
+        "score_kept": 0.9797941042379861,
+        "score_kept_ci": [
+          0.9296298662932813,
+          1.0
+        ],
+        "actions_released": 0.3326283987915408,
+        "global_cap": 101,
+        "global_cap_score_kept": 0.8745715536072914,
+        "global_cap_released": 0.3259818731117825
+      },
+      "150": {
+        "mean_score": 6.3760336805093765,
+        "score_kept": 0.999572853789721,
+        "score_kept_ci": [
+          0.9982955310165226,
+          1.0000000000000002
+        ],
+        "actions_released": 0.18277945619335345,
+        "global_cap": 156,
+        "global_cap_score_kept": 0.999572853789721,
+        "global_cap_released": 0.18640483383685802
+      }
+    }
+  },
+  "kaggle_v5": {
+    "mean_score": 7.294550516585795,
+    "stop": {
+      "50": {
+        "mean_score": 6.053884456042764,
+        "score_kept": 0.829918778720896,
+        "score_kept_ci": [
+          0.5940622401883815,
+          0.9845377558090347
+        ],
+        "actions_released": 0.4575575891448407,
+        "global_cap": 76,
+        "global_cap_score_kept": 0.7261337438675379,
+        "global_cap_released": 0.45818870306090254
+      },
+      "80": {
+        "mean_score": 7.235539514534562,
+        "score_kept": 0.9919102620624728,
+        "score_kept_ci": [
+          0.9689389610729973,
+          1.0000000000000002
+        ],
+        "actions_released": 0.27863679394130636,
+        "global_cap": 116,
+        "global_cap_score_kept": 0.9732581954157542,
+        "global_cap_released": 0.2780056800252445
+      },
+      "150": {
+        "mean_score": 7.294550516585791,
+        "score_kept": 0.9999999999999996,
+        "score_kept_ci": [
+          0.9999999999999997,
+          1.0000000000000002
+        ],
+        "actions_released": 0.1126538340170401,
+        "global_cap": 181,
+        "global_cap_score_kept": 0.9732581954157542,
+        "global_cap_released": 0.1167560744714421
+      }
+    }
+  },
+  "kaggle_v7": {
+    "mean_score": 1.3673341588679244,
+    "stop": {
+      "50": {
+        "mean_score": 1.3673341588679242,
+        "score_kept": 0.9999999999999999,
+        "score_kept_ci": [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        "actions_released": 0.0016474464579900872,
+        "global_cap": 81,
+        "global_cap_score_kept": 0.9999999999999999,
+        "global_cap_released": 0.0
+      },
+      "80": {
+        "mean_score": 1.3673341588679242,
+        "score_kept": 0.9999999999999999,
+        "score_kept_ci": [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        "actions_released": 0.0,
+        "global_cap": 81,
+        "global_cap_score_kept": 0.9999999999999999,
+        "global_cap_released": 0.0
+      },
+      "150": {
+        "mean_score": 1.3673341588679242,
+        "score_kept": 0.9999999999999999,
+        "score_kept_ci": [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        "actions_released": 0.0,
+        "global_cap": 81,
+        "global_cap_score_kept": 0.9999999999999999,
+        "global_cap_released": 0.0
+      }
+    }
+  },
+  "api_qwen38flash": {
+    "mean_score": 9.065639714472036,
+    "stop": {
+      "50": {
+        "mean_score": 7.379304607550127,
+        "score_kept": 0.8139860881268082,
+        "score_kept_ci": [
+          0.6599162490961383,
+          0.9296340689740504
+        ],
+        "actions_released": 0.41241747436437703,
+        "global_cap": 76,
+        "global_cap_score_kept": 0.6991389425671595,
+        "global_cap_released": 0.3985812614131198
+      },
+      "80": {
+        "mean_score": 8.758724444580196,
+        "score_kept": 0.9661452164923461,
+        "score_kept_ci": [
+          0.9228479385208479,
+          0.9949059181072366
+        ],
+        "actions_released": 0.23704171934260432,
+        "global_cap": 111,
+        "global_cap_score_kept": 0.8349687697405701,
+        "global_cap_released": 0.23767383059418457
+      },
+      "150": {
+        "mean_score": 8.974568584775321,
+        "score_kept": 0.9899542522574185,
+        "score_kept_ci": [
+          0.9710481210950657,
+          1.0000000000000007
+        ],
+        "actions_released": 0.105070936929344,
+        "global_cap": 171,
+        "global_cap_score_kept": 0.9654435765287659,
+        "global_cap_released": 0.10647562859952242
+      }
+    }
+  },
+  "tufa_qwen36_27b": {
+    "mean_score": 1.600203536751952,
+    "stop": {
+      "50": {
+        "mean_score": 1.3767677288334375,
+        "score_kept": 0.860370382400205,
+        "score_kept_ci": [
+          0.7287645722104329,
+          0.9329608559495757
+        ],
+        "actions_released": 0.5851169156401969,
+        "global_cap": 56,
+        "global_cap_score_kept": 0.8050643297246892,
+        "global_cap_released": 0.5986284616056609
+      },
+      "80": {
+        "mean_score": 1.5385517667561839,
+        "score_kept": 0.9614725448483215,
+        "score_kept_ci": [
+          0.913683454039542,
+          0.9833997424708475
+        ],
+        "actions_released": 0.3862438484610232,
+        "global_cap": 91,
+        "global_cap_score_kept": 0.929634714935543,
+        "global_cap_released": 0.3876561544509478
+      },
+      "150": {
+        "mean_score": 1.599183438628907,
+        "score_kept": 0.9993625197672569,
+        "score_kept_ci": [
+          0.9983354297217882,
+          0.9999999999999998
+        ],
+        "actions_released": 0.1222299874785242,
+        "global_cap": 161,
+        "global_cap_score_kept": 0.999510494931011,
+        "global_cap_released": 0.12134183628898398
+      }
+    }
+  },
+  "api_gptoss120b": {
+    "mean_score": 0.23187671044618904,
+    "stop": {
+      "50": {
+        "mean_score": 0.231876710446189,
+        "score_kept": 0.9999999999999998,
+        "score_kept_ci": [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        "actions_released": 0.8278328452354133,
+        "global_cap": 51,
+        "global_cap_score_kept": 0.9999999999999998,
+        "global_cap_released": 0.8298040099121424
+      },
+      "80": {
+        "mean_score": 0.231876710446189,
+        "score_kept": 0.9999999999999998,
+        "score_kept_ci": [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        "actions_released": 0.7413831944131561,
+        "global_cap": 81,
+        "global_cap_score_kept": 0.9999999999999998,
+        "global_cap_released": 0.7411015994593377
+      },
+      "150": {
+        "mean_score": 0.231876710446189,
+        "score_kept": 0.9999999999999998,
+        "score_kept_ci": [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        "actions_released": 0.5825073214687992,
+        "global_cap": 151,
+        "global_cap_score_kept": 0.9999999999999998,
+        "global_cap_released": 0.5814372606442892
+      }
+    }
+  }
+}
