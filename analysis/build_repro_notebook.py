@@ -9,13 +9,13 @@ import hashlib
 import io
 import json
 import lzma
+import os
+import shutil
 import pickle
 import re
 import resource
-import tarfile
 import tempfile
 import time
-import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,28 +49,59 @@ def code(text):
             'execution_count': None, 'outputs': []}
 
 
-def virgin_sources():
-    """Per-level rows of every arm that touched a Virgin game (the frozen inducer file, 5 seeds), plus the stored summary."""
-    import sys
-    here = ROOT / '.ai/blind/patch_autonomous_inducer_v10'
-    sys.path.insert(0, str(here))
-    import build_v10b_all
-    T, files, bad = build_v10b_all.load()
-    assert not bad and all(files[p] == n for p, n in build_v10b_all.EXPECTED.items()), (files, bad)
-    rows = {t: {k: [r['levels_completed'], r['total_levels'], bool(r['win']),
-                    [(r.get('level_actions') or {}).get(str(l)) or 0 for l in range(1, r['levels_completed'] + 1)]]
-                for k, r in sorted(d.items()) if k.startswith('virgin')} for t, d in sorted(T.items())}
-    rep = json.loads((here / 'inducer_v10b_all_results.json').read_text())
-    suites = ('Virgin-116', 'Virgin-236')
-    hz = json.loads((ROOT / '.ai/blind/patch_autonomous_discrete_hazard_theory/discrete_hazard_and_provenance_receipt.json').read_text())
-    return {'rows': {t: d for t, d in rows.items() if d},
-            'stored': {'multiseed': {k: {x: y for x, y in v.items() if x not in ('down', 'by_seed')}
-                                     for k, v in rep['multiseed'].items() if k.split(' | ')[1] in suites},
-                       'scorecard_seed0': {g: rep['scorecard_seed0'][g] for g in suites},
-                       'main_seed0': {g: rep['main_seed0'][g] for g in suites}},
-            'renewal': {'finite_horizon_example': hz['theorem']['finite_horizon_example'],
-                        'km_c80': {n: {x: v[x] for x in ('c', 'S_c', 'E_min_T_c', 'R_c')}
-                                   for n, v in hz['hazard']['km_by_dataset'].items()}}}
+def archived_payload():
+    from audit_submission_bundle import read_embedded_payload
+    return read_embedded_payload(ROOT / 'notebooks' / (STEM + '.ipynb'))
+
+
+def evidence_key(value):
+    return 'evidence/records/' + hashlib.sha256(value.encode()).hexdigest()
+
+
+def normalize_evidence(payload):
+    """Use opaque identifiers while retaining raw-source and canonical-data hashes."""
+    from audit_submission_bundle import publication_policy
+    identifiers = dict(payload.get('evidence_identifier_sha256', {}))
+    memo = {}
+    def rename(value):
+        if isinstance(value, (dict, list, tuple)) and id(value) in memo:
+            return memo[id(value)]
+        if isinstance(value, dict):
+            result = {rename(k): rename(v) for k, v in value.items()}
+            memo[id(value)] = result
+            return result
+        if isinstance(value, list):
+            result = [rename(v) for v in value]
+            memo[id(value)] = result
+            return result
+        if isinstance(value, tuple):
+            result = tuple(rename(v) for v in value)
+            memo[id(value)] = result
+            return result
+        if isinstance(value, str) and ('patch_' in value or value.startswith('evidence/archive/')
+                                       or hashlib.sha256(Path(value).stem.encode()).hexdigest() in
+                                       publication_policy().get('source_name_sha256', ())):
+            digest = hashlib.sha256(value.encode()).hexdigest()
+            identifiers[digest] = evidence_key(value)
+            return identifiers[digest]
+        return value
+    original = payload['audit_inputs']
+    groups, records = dict(payload.get('audit_groups', {})), {}
+    for name, item in original.items():
+        updated = {**item, 'data': rename(item['data']), 'original_data_sha256': item.get('original_data_sha256', item['data_sha256'])}
+        raw = json.dumps(updated['data'], sort_keys=True, separators=(',', ':')).encode()
+        updated['data_sha256'] = hashlib.sha256(raw).hexdigest()
+        records[name if name.startswith('evidence/records/') else evidence_key(name)] = updated
+        if '/runs/' in name:
+            folder, basename = name.rsplit('/', 1)
+            group = hashlib.sha256(folder.encode()).hexdigest()
+            groups.setdefault(group, []).append({'name': basename, 'key': evidence_key(name)})
+    payload = rename(payload)
+    assert len(records) == len(original), 'Evidence identifier collision'
+    payload['audit_inputs'] = records
+    payload['audit_groups'] = {k: sorted(v, key=lambda r: r['name']) for k, v in groups.items()}
+    payload['evidence_identifier_sha256'] = identifiers
+    return payload
 
 
 def manuscript_references():
@@ -81,165 +112,21 @@ def manuscript_references():
     return {'entries': re.findall(r'^(\d+)\. (.+)$', refs, re.M), 'cited': cited}
 
 
-def ladder_sources():
-    """Embed the complete paired rerun and the same deterministic analysis, without file I/O."""
-    here = ROOT / '.ai/blind/patch_autonomous_virgin236_ladder_and_theory'
-    rows = {}
-    keep = {'levels_completed', 'win', 'actions', 'total_levels', 'reasons', 'level_actions'}
-    for slot, expected in (('open', 12565), ('v116', 11600), ('v120', 12000)):
-        tags = {}
-        with tarfile.open(here / 'out' / slot / f'runs_{slot}.tgz') as archive:
-            count = 0
-            for member in archive:
-                path = Path(member.name)
-                if not member.isfile() or path.suffix != '.json':
-                    continue
-                row = json.load(archive.extractfile(member))['games'][0]
-                key = path.name.rsplit('__', 1)[0]
-                tags.setdefault(path.parent.name, {})[key] = {k: v for k, v in row.items() if k in keep}
-                if row.get('error'):
-                    tags[path.parent.name][key]['error'] = True
-                count += 1
-        assert count == expected, (slot, count, expected)
-        rows[slot] = tags
-    games = json.loads((here.parent / 'patch_autonomous_inducer_v9/games_public25.json').read_text())
-    human = {f'public25__{i:02d}': json.loads((Path(r['path']).parent / 'metadata.json').read_text())['baseline_actions']
-             for i, r in enumerate(games)}
-    tree = ast.parse((here / 'analyze_v236.py').read_text())
-    helper_names = {'tagname', 'nboot', 'wil'}
-    helpers = [n for n in tree.body if (isinstance(n, ast.FunctionDef) and n.name in helper_names) or
-               (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in
-                {'HELD', 'SEEDS', 'KS', 'BUDGET', 'RUNGS', 'LABEL'} for t in n.targets))]
-    fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'main')
-    body = []
-    for node in fn.body:
-        source = ast.unparse(node)
-        if source.startswith('(HERE /') and '.write_text(' in source:
-            break
-        if isinstance(node, ast.Assign):
-            target = ast.unparse(node.targets[0])
-            replacements = {'(T, bad)': "T, bad = D['virgin_ladder']['rows'], []",
-                            'T, bad': "T, bad = D['virgin_ladder']['rows'], []",
-                            'human': "human = D['virgin_ladder']['human']",
-                            'man': "man = D['virgin_ladder']['manifest']",
-                            'hid': "hid = D['virgin_ladder']['hidden110']"}
-            if target in ('pub_rows', "rep['ladder_reference']"):
-                continue
-            if target in replacements:
-                node = ast.parse(replacements[target]).body[0]
-        body.append(node)
-    body.append(ast.parse('return rep').body[0])
-    fn.name, fn.body = 'recompute_operator_ladder_and_law', body
-    module = ast.fix_missing_locations(ast.Module(body=helpers + [fn], type_ignores=[]))
-    source = ast.unparse(module)
-    assert not any(term in source for term in ('open(', 'read_text(', 'write_text(', 'HERE', 'V9'))
-    stored = json.loads((here / 'virgin236_ladder_and_theory_receipt.json').read_text())
-    manifest = json.loads((here / 'runs_manifest.json').read_text())
-    return {'rows': rows, 'human': human, 'manifest': manifest,
-            'hidden110': json.loads((ROOT / 'analysis/out/component_ablation_ladder.json').read_text())['hidden110'],
-            'analysis_source': source,
-            'stored': {k: stored[k] for k in ('ladder', 'dilution_law')}}
-
-
-def hybrid_sources():
-    here = ROOT / '.ai/blind/patch_autonomous_hybrid_llm_pairing'
-    paired = [json.loads(line) for line in (here / 'paired_runs.jsonl').read_text().splitlines()]
-    symbolic = {}
-    rows = []
-    for row in paired:
-        game = row['game']
-        if game not in symbolic:
-            symbolic[game] = {k: v for k, v in json.loads(Path(row['symbolic_source']).read_text())['games'][0].items()
-                              if k in ('levels_completed', 'level_actions')}
-        original = {k: row['original'][k] for k in ('game', 'L', 'k', 'a', 'base', 'observed_actions')}
-        rows.append({'game': game, 'cohort': row['cohort'], 'original': original,
-                     'expected': row['arms'], 'envelope': row['observed_action_envelope']})
-    summary = json.loads((here / 'paired_statistics.json').read_text())
-    return {'rows': rows, 'symbolic': symbolic,
-            'source': selected(here / 'evaluate_hybrid_llm_pairing.py', {'SEED', 'score', 'replay', 'cluster_stats'}),
-            'summaries': {g: {a: summary['summaries'][g][a] for a in ('gate', 'oracle_guard')}
-                          for g in ('baseline825', 'confirmation250')},
-            'envelope_summaries': {g: {a: summary['observed_action_envelope_summaries'][g][a] for a in ('gate', 'oracle_guard')}
-                                   for g in ('baseline825', 'confirmation250')}}
-
-
-def public_evidence_key(value):
-    """Public identifiers for archived inputs, including their original basenames."""
-    return str(value).replace(str(ROOT) + '/', '').replace(str(ROOT.parent / 'arc-agi-3') + '/', 'method-source/').replace(
-        '.ai/blind/', 'evidence/archive/').replace('.ai/dispatch/', 'evidence/run-archive/')
-
-
-def public_evidence_data(value):
-    if isinstance(value, dict):
-        return {public_evidence_key(k): public_evidence_data(v) for k, v in value.items()}
-    if isinstance(value, list):
-        return [public_evidence_data(v) for v in value]
-    return public_evidence_key(value) if isinstance(value, str) else value
-
-
-def audit_sources():
-    """Exact statistical inputs used by the public bundle auditor, embedded with hashes."""
-    base = ROOT / '.ai/blind'
-    names = [
-        'patch_autonomous_universality/theory_results.json',
-        'patch_autonomous_universality/universality_results.json',
-        'patch_autonomous_astra_transfer/online_inducer_results.json',
-        'patch_autonomous_click_inertia/online_inducer_v6_results.json',
-        'inducer_v7_combined_results.json',
-        'patch_autonomous_click_connectivity/inducer_v7_click_results.json',
-        'patch_autonomous_object_graph/inducer_v7_graph_results.json',
-        'patch_autonomous_inducer_v8/inducer_v8_results.json',
-        'patch_autonomous_inducer_v8b/inducer_v8b_results.json',
-        'patch_autonomous_d4_subboard/d4_subboard_and_factors_receipt.json',
-        'patch_autonomous_inducer_v9/inducer_v9_all_results.json',
-    ]
-    paths = [base / name for name in names]
-    transfer = base / 'patch_autonomous_astra_transfer/runs'
-    for tag, arm in (('v1', 'random'), ('v1', 'general'), ('v1', 'gated'), ('v5gf', 'inducer')):
-        paths.extend(sorted((transfer / tag).glob(f'*__{arm}.json')))
-    v6 = base / 'patch_autonomous_click_inertia'
-    run = json.loads((v6 / 'online_inducer_v6_results.json').read_text())['delivered']['run']
-    for suite in ('mother1102', 'tufaweb1102', 'turducken49'):
-        paths.extend(sorted((v6 / run).glob(f'{suite}__*__inducer.json')))
-    result = {}
-    for path in paths:
-        raw = path.read_bytes()
-        data = public_evidence_data(json.loads(raw))
-        canonical = json.dumps(data, sort_keys=True, separators=(',', ':')).encode()
-        result[public_evidence_key(path)] = {'data': data,
-            'source_sha256': hashlib.sha256(raw).hexdigest(),
-            'data_sha256': hashlib.sha256(canonical).hexdigest()}
-    return result
-
-
-def cover_payload():
-    """Bundle the exact overview renderer and its archived input records."""
-    path = ROOT / 'analysis/generate_cover.py'
-    tree = ast.parse(path.read_text())
-    fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'render_cover')
-    inputs_node = next(n for n in fn.body if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'inputs' for t in n.targets))
-    inputs = ast.literal_eval(inputs_node.value)
-    source = module_source(path)
-    source = re.sub(r"ROOT = Path\(__file__\).resolve\(\).parents\[1\]", "ROOT = Path.cwd()", source)
-    source = source.replace("OUT = ROOT / '.ai/dispatch'", "OUT = output_dir")
-    source = source.replace(ast.unparse(inputs_node), 'inputs = COVER_INPUT_NAMES')
-    source = source.replace("[json.loads((ROOT / p).read_text()) for p in inputs]", '[COVER_INPUTS[p] for p in inputs]')
-    source = source.replace("{p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in inputs}", 'COVER_INPUT_HASHES')
-    source = source.replace("json.loads((ROOT / 'analysis/out/xray_transition.json').read_text())", "src.J('xray_transition')")
-    assert '.ai/' not in source
-    records = {p: json.loads((ROOT / p).read_text()) for p in inputs}
-    # Keep the exact cells consumed by the renderer; complete run rows are already
-    # embedded in the statistical sections rather than duplicated in the overview.
-    records[inputs[1]] = {}  # reserved ladder input; no read by the renderer
-    records[inputs[3]] = {'prediction_cells': records[inputs[3]]['prediction_cells']}
-    records[inputs[4]] = {'dilution_law': {'cells': records[inputs[4]]['dilution_law']['cells']}}
-    return {'source': source,
-            'names': [public_evidence_key(p) for p in inputs],
-            'records': {public_evidence_key(p): public_evidence_data(records[p]) for p in inputs},
-            'hashes': {public_evidence_key(p): hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in inputs}}
-
-
 def make_payload(main_repo):
+    archive = normalize_evidence(archived_payload())
+    assert archive['source_sha256'] == {
+        n: hashlib.sha256((ROOT / 'paper' / n).read_bytes()).hexdigest()
+        for n in ('frontier-lock.md', 'appendix.md')}, 'Archived manuscript inputs differ'
+    input_sources = {}
+    def method_module(key, path, names=None, exclude=()):
+        input_sources[key] = 'local' if path.is_file() else 'embedded'
+        return (selected(path, names) if names is not None else module_source(path, exclude)) if path.is_file() else archive['modules'][key]
+    def observation(key, path, field=None):
+        input_sources[key] = 'local' if path.is_file() else 'embedded'
+        if not path.is_file():
+            return archive[key]
+        value = json.loads(path.read_text())
+        return value[field] if field else value
     import sys
     import platform
     import matplotlib
@@ -257,24 +144,27 @@ def make_payload(main_repo):
     for name in ('frontier-lock.md', 'appendix.md'):
         text = (ROOT / 'paper' / name).read_text()
         tables.extend(re.findall(r'(?:^\|[^\n]*\n)+', text + '\n', re.M))
-    return {
+    payload = {
+        'input_sources': input_sources,
         'traces': {n: [json.loads(l) for l in (ROOT / 'evidence/traces' / (n + '.jsonl')).read_text().splitlines()]
                    for n in names},
         'confirmation': [json.loads(l) for l in (ROOT / 'evidence/confirmation_runs.jsonl').read_text().splitlines()],
         'receipts': x['receipts'], 'planner': x['planner'], 'human_base': x['human_base'],
         'specimen': x['specimen'], 'census': x['census'], 'tables': tables, 'xray': x,
         'analysis': {p.stem: json.loads(p.read_text()) for p in (ROOT / 'analysis/out').glob('*.json') if p.name.startswith('a') or p.stem=='xray_transition'},
-        'cover': cover_payload(),
-        'heldout_ladder': figures.heldout_sources(),
-        'l2_rules': figures.l2_sources(),
-        'virgin_multiseed': virgin_sources(),
-        'virgin_ladder': ladder_sources(),
-        'hybrid_pairing': hybrid_sources(),
-        'audit_inputs': audit_sources(),
-        'claim_inputs': json.loads((ROOT / '.ai/blind/patch_autonomous_s39b_cleanroom_audit/claim_inputs.json').read_text()),
+        'cover': archive['cover'],
+        'heldout_ladder': archive['heldout_ladder'],
+        'l2_rules': archive['l2_rules'],
+        'virgin_multiseed': archive['virgin_multiseed'],
+        'virgin_ladder': archive['virgin_ladder'],
+        'hybrid_pairing': archive['hybrid_pairing'],
+        'audit_inputs': archive['audit_inputs'],
+        'audit_groups': archive['audit_groups'],
+        'evidence_identifier_sha256': archive['evidence_identifier_sha256'],
+        'claim_inputs': archive['claim_inputs'],
         'references': manuscript_references(),
-        'host_fixture_observation': json.loads((main_repo / 'out/mother-hunt-1102/zero_probe_unit.json').read_text())['host_burst'],
-        'gil_observation': json.loads((main_repo / 'out/mother-hunt-1102/zero_probe_gil.json').read_text()),
+        'host_fixture_observation': observation('host_fixture_observation', main_repo / 'out/mother-hunt-1102/zero_probe_unit.json', 'host_burst'),
+        'gil_observation': observation('gil_observation', main_repo / 'out/mother-hunt-1102/zero_probe_gil.json'),
         'source_sha256': {n: hashlib.sha256((ROOT / 'paper' / n).read_bytes()).hexdigest()
                           for n in ['frontier-lock.md', 'appendix.md']},
         'locked_markdown_sha256': {n: hashlib.sha256((ROOT / n).read_bytes()).hexdigest()
@@ -291,15 +181,15 @@ def make_payload(main_repo):
         'figure_font_bold': base64.b64encode(Path(findfont(__import__('matplotlib').font_manager.FontProperties(family='STIX Two Text',weight='bold'), fallback_to_default=False)).read_bytes()).decode(),
         'figure_font_notice': 'Copyright 2001-2021 The STIX Fonts Project Authors (https://github.com/stipub/stixfonts). SIL Open Font License 1.1: https://scripts.sil.org/OFL',
         'modules': {
-            'sandbox_autosearch': module_source(main_repo / 'scripts/sandbox_autosearch.py', ('emit_patch',)),
-            'giants_sandbox_bridge': module_source(main_repo / 'scripts/giants_sandbox_bridge.py'),
-            'd4': selected(main_repo / 'scripts/giants_cross_level_transfer.py',
+            'sandbox_autosearch': method_module('sandbox_autosearch', main_repo / 'scripts/sandbox_autosearch.py', exclude=('emit_patch',)),
+            'giants_sandbox_bridge': method_module('giants_sandbox_bridge', main_repo / 'scripts/giants_sandbox_bridge.py'),
+            'd4': method_module('d4', main_repo / 'scripts/giants_cross_level_transfer.py',
                            {'_NAMES', '_DIR', 'D4_NAMES', '_MATRICES', 'action_name', 'click_xy', 'mouse',
                             'd4_point', 'd4_action', 'd4_pixels'}),
-            'host_fixture': selected(main_repo / 'scripts/validate_series16.py', {'host_burst_check'}),
+            'host_fixture': method_module('host_fixture', main_repo / 'scripts/validate_series16.py', {'host_burst_check'}),
             'common': selected(ROOT / 'analysis/common.py',
                                {'DATASETS', 'level_score', 'score', 'depth_cap', 'attempts', 'km', 'cond_pass'}),
-            'inversion': selected(main_repo / 'scripts/receipt_differential_inversion.py',
+            'inversion': method_module('inversion', main_repo / 'scripts/receipt_differential_inversion.py',
                                   {'GAME_VALUE', 'ROUND_HALF', 'rational', 'number', 'level_score', 'game_score',
                                    'prefix_contribution', 'rounded_delta', 'ceil_fraction', 'conditional_lattice', 'invert_score'}),
             'palette': module_source(ROOT / 'analysis/palette.py'),
@@ -308,6 +198,7 @@ def make_payload(main_repo):
                                      ('main', 'heldout_sources', 'l2_sources')).replace("matplotlib.use('Agg')", ''),
         },
     }
+    return normalize_evidence(payload)
 
 
 def notebook(payload):
@@ -1085,8 +976,8 @@ def execute(nb):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--main-repo',type=Path,default=ROOT.parent/'arc-agi-3')
-    parser.add_argument('--receipt',type=Path,nargs='+',default=[ROOT/'.ai/dispatch/notebook_receipt.json'])
+    parser.add_argument('--main-repo',type=Path,default=Path(os.environ.get('METHOD_SOURCE_ROOT', str(ROOT.parent / 'arc-agi-3'))))
+    parser.add_argument('--receipt',type=Path,nargs='+',default=[Path(tempfile.gettempdir())/'repro_notebook/notebook_receipt.json'])
     args = parser.parse_args()
     payload = make_payload(args.main_repo)
     # Embed only glyphs used by the public sources; outlines and metrics stay intact.
@@ -1105,11 +996,15 @@ def main():
         font_bytes = io.BytesIO()
         subset.save_font(font, font_bytes, options)
         payload[font_key] = base64.b64encode(font_bytes.getvalue()).decode()
+    from audit_submission_bundle import forbidden_hits, HELDOUT_TUNED
+    decoded = json.dumps(payload, ensure_ascii=False)
+    forbidden = list(forbidden_hits(decoded, ignore_case=True))
+    assert not re.search(r'/Users/|/opt/homebrew/|\.ai/', decoded, re.I)
+    assert not forbidden, forbidden[:10]
     nb = notebook(payload)
     source_notebook_bytes = len(json.dumps(nb).encode())
     assert source_notebook_bytes < 1_000_000, f'Kaggle notebook source exceeds 1 MB: {source_notebook_bytes}'
     # Execute in an isolated output directory; the generated notebook itself uses cwd.
-    import os
     with tempfile.TemporaryDirectory(prefix='arc3-notebook-') as temp:
         previous_cwd = Path.cwd()
         try:
@@ -1117,6 +1012,11 @@ def main():
             result = execute(nb)
             runtime_receipt = Path('frontier_lock_runtime_receipt.json').read_text()
             assert json.loads(runtime_receipt)['passed']
+            for out in args.receipt:
+                figures_out = out.parent / 'rendered_figures'
+                figures_out.mkdir(parents=True, exist_ok=True)
+                for png in Path('frontier_lock_figures').glob('*.png'):
+                    shutil.copy2(png, figures_out / png.name)
         finally:
             os.chdir(previous_cwd)
     folder = ROOT/'notebooks'
@@ -1124,25 +1024,21 @@ def main():
     path = folder/(STEM+'.ipynb')
     serialized = json.dumps(nb,indent=1,ensure_ascii=False)+'\n'
     # Decode every payload before checking the public artifact, including embedded sources and records.
-    decoded = json.dumps(payload,ensure_ascii=False)
-    assert not re.search(r'/Users/|/opt/homebrew/|\.ai/|\b(?:Claude|Codex|Puffy|Argon)\b',decoded,re.I)
-    # Same terms the submission preflight scans for: internal names, inducer iteration labels, held-out-tuned games.
-    import sys
-    sys.path.insert(0,str(ROOT/'analysis'))
-    with contextlib.redirect_stdout(io.StringIO()):
-        from audit_submission_bundle import FORBIDDEN, HELDOUT_TUNED
-    forbidden = [(n,m.group(0)) for n,line in enumerate(serialized.splitlines(),1)
-                 for m in re.finditer('|'.join([HELDOUT_TUNED,*map(re.escape,FORBIDDEN)]),line)]
+    forbidden = list(forbidden_hits(serialized))
+    forbidden.extend({'offset': m.start(), 'term': 'heldout_label'}
+                     for m in re.finditer(HELDOUT_TUNED, serialized))
     assert not forbidden, forbidden[:10]
     path.write_text(serialized)
     metadata = {'id':'loxigicck/breaking-frontier-lock-repro','title':'Breaking Frontier Lock Repro',
                 'code_file':path.name,'language':'python','kernel_type':'notebook','is_private':False,
                 'enable_gpu':False,'enable_internet':False,'dataset_sources':[],
                 'competition_sources':[],'kernel_sources':[]}
-    (folder/'kernel-metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
+    expected_metadata = json.loads((folder/'kernel-metadata.json').read_text())
+    assert metadata == expected_metadata, 'Kernel metadata differs from the existing publication contract'
     receipt = {'state':'done','reason':'complete','passed':True,'runtime_healthy':True,
                'notebook':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
                'notebook_bytes':path.stat().st_size,'source_sha256':payload['source_sha256'],
+               'input_sources':payload['input_sources'],
                'source_notebook_bytes':source_notebook_bytes,'audit_input_records':len(payload['audit_inputs']),
                'locked_markdown_sha256':payload['locked_markdown_sha256'],
                'figure_png_sha256':payload['figure_png_sha256'],

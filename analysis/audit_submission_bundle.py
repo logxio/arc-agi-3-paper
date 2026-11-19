@@ -17,10 +17,14 @@ import argparse
 import ast
 import base64
 import fnmatch
+import functools
 import json
 import lzma
 import pickle
 import math
+import os
+import tempfile
+import types
 import re
 import statistics
 import subprocess
@@ -33,8 +37,7 @@ from pathlib import Path
 
 ROOT = next(p for p in Path(__file__).resolve().parents
             if (p / 'paper/frontier-lock.md').is_file() and (p / 'analysis').is_dir())
-HERE = (ROOT / '.ai/blind/patch_autonomous_submission_preflight'
-        if (ROOT / '.ai').is_dir() else ROOT / 'analysis/out/submission_audit')
+HERE = Path(os.environ.get('SUBMISSION_AUDIT_DIR', str(Path(tempfile.gettempdir()) / 'submission_audit')))
 ANALYSIS = ROOT / 'analysis'
 OUT = ANALYSIS / 'out'
 PAPER = ROOT / 'paper'
@@ -45,87 +48,125 @@ sys.path.insert(0, str(ANALYSIS))
 DOCS = {'FL': PAPER / 'frontier-lock.md', 'AP': PAPER / 'appendix.md', 'RD': ROOT / 'README.md',
         'AR': ANALYSIS / 'README.md'}
 EXTENDED = [PAPER / 'ARC_Prize_2026_Breaking_Frontier_Lock.tex', *sorted((ROOT / 'notebooks').glob('*.ipynb'))]
-FORBIDDEN = ['astra_final_public_solvers', 'astra_tufa_algebra_solvers', 'astra_turducken', 'incl. 10 official',
-             'Theorem 1', '1,794/1,795', '434/434', 'upload order', 'peer anchor', 'two causal laws',
-             'two foundational laws', '/Users/suapril', 'claude-opus', 'gpt-6.1-sol']
+@functools.cache
+def publication_policy():
+    """Extend portable path checks with an optional, machine-local publication policy."""
+    path = Path(os.environ.get('PUBLICATION_POLICY', str(
+        Path.home() / '.config' / 'publication-policy' / (ROOT.name + '.json'))))
+    return json.loads(path.read_text()) if path.is_file() else {}
+
+
+def forbidden_hits(text, ignore_case=False):
+    """Prefix digests reduce work; the full substring SHA-256 decides every match."""
+    rules = publication_policy().get('casefold_substring_rules' if ignore_case else 'substring_rules', ())
+    by_prefix = {}
+    for length, prefix_digest, digest in rules:
+        by_prefix.setdefault(prefix_digest, []).append((length, digest))
+    candidate = text.casefold() if ignore_case else text
+    for match in re.finditer(r'/(?:Users|home)/[^/\s\"\']+|/opt/homebrew/|(?<!\w)\.ai/', text, re.I if ignore_case else 0):
+        value = match.group(0)
+        yield {'offset': match.start(), 'length': len(value),
+               'term': hashlib.sha256(value.encode()).hexdigest()}
+    for pos in range(len(candidate) - 3):
+        prefix_digest = hashlib.sha256(candidate[pos:pos + 4].encode()).hexdigest()
+        for length, digest in by_prefix.get(prefix_digest, ()):
+            if hashlib.sha256(candidate[pos:pos + length].encode()).hexdigest() == digest:
+                yield {'offset': pos, 'length': length, 'term': digest}
+
+
+
 MAIN_FIGURES = ['hazard', 'regime', 'hazard_by_dataset', 'architecture', 'cover']
 SOURCES = [*DOCS.values(), OUT / 'component_ablation_ladder.json', OUT / 'ablation_ladder.json', OUT / 'a9_d4_and_reachability_audit.json',
-           OUT / 'xray_figcheck.json', ROOT / '.ai/blind/patch_autonomous_inducer_v8/inducer_v8_results.json',
-           ROOT / '.ai/blind/patch_autonomous_inducer_v8b/inducer_v8b_results.json',
-           ROOT / '.ai/blind/patch_autonomous_d4_subboard/d4_subboard_and_factors_receipt.json']
+           OUT / 'xray_figcheck.json', ROOT / 'evidence/records/f32af64750f18068b2854068ee41a41f611f465bd6ffbd24a290104dfae85f10',
+           ROOT / 'evidence/records/2fd7d2ec35e2f618f4ae4d988ce04cff7e14180a651b4fb1d8de61d3064f2725',
+           ROOT / 'evidence/records/3ee575765ac279abd8bf266666d3ba09b7546f1fc67f2d61a57ddb11b29cbac1']
 
 
 _PAYLOAD = None
 
 
+def read_embedded_payload(path):
+    """Verify packed bytes and each archived record before using saved observations."""
+    nb = json.loads(path.read_text())
+    for cell in nb['cells']:
+        source = cell['source']
+        source = ''.join(source) if isinstance(source, list) else source
+        if 'payload_bytes = ' not in source:
+            continue
+        tree = ast.parse(source)
+        packed = next(n.args[0].value for n in ast.walk(tree) if isinstance(n, ast.Call)
+                      and isinstance(n.func, ast.Attribute) and n.func.attr == 'b64decode'
+                      and isinstance(n.args[0], ast.Constant))
+        raw = (lzma if 'lzma.decompress(' in source else zlib).decompress(base64.b64decode(packed))
+        expected = re.search(r"sha256\(payload_bytes\)\.hexdigest\(\) == ['\"]([0-9a-f]{64})", source)[1]
+        assert hashlib.sha256(raw).hexdigest() == expected, 'Notebook payload checksum mismatch'
+        payload = pickle.loads(raw) if 'pickle.loads(payload_bytes)' in source else json.loads(raw)
+        for key, item in payload['audit_inputs'].items():
+            canonical = json.dumps(item['data'], sort_keys=True, separators=(',', ':')).encode()
+            assert hashlib.sha256(canonical).hexdigest() == item['data_sha256'], f'Input checksum mismatch: {key}'
+        return payload
+    raise AssertionError('Notebook contains no reproducibility payload')
+
+
 def embedded_inputs():
-    """Read the hash-checked public notebook payload, without executing notebook code."""
+    """Check the archive against the current manuscript, locked documents and figures."""
     global _PAYLOAD
     if _PAYLOAD is None:
-        nb = json.loads((ROOT / 'notebooks/frontier_lock_reproduction.ipynb').read_text())
-        for cell in nb['cells']:
-            source = cell['source']
-            source = ''.join(source) if isinstance(source, list) else source
-            if 'payload_bytes = ' not in source:
-                continue
-            tree = ast.parse(source)
-            packed = next(n.args[0].value for n in ast.walk(tree) if isinstance(n, ast.Call)
-                          and isinstance(n.func, ast.Attribute) and n.func.attr == 'b64decode'
-                          and isinstance(n.args[0], ast.Constant))
-            raw = (lzma if 'lzma.decompress(' in source else zlib).decompress(base64.b64decode(packed))
-            expected = re.search(r"sha256\(payload_bytes\)\.hexdigest\(\) == ['\"]([0-9a-f]{64})", source)[1]
-            assert hashlib.sha256(raw).hexdigest() == expected, 'Notebook payload checksum mismatch'
-            _PAYLOAD = pickle.loads(raw) if 'pickle.loads(payload_bytes)' in source else json.loads(raw)
-            assert _PAYLOAD['source_sha256'] == {
-                n: hashlib.sha256((PAPER / n).read_bytes()).hexdigest()
-                for n in ('frontier-lock.md', 'appendix.md')}, 'Notebook manuscript snapshot mismatch'
-            assert _PAYLOAD['locked_markdown_sha256'] == {
-                n: sha(ROOT / n) for n in ('paper/frontier-lock.md', 'paper/appendix.md', 'README.md', 'analysis/README.md')
-            }, 'Notebook locked Markdown snapshot mismatch'
-            assert _PAYLOAD['figure_png_sha256'] == {
-                n: sha(PAPER / 'figures' / (n + '.png'))
-                for n in ('cover', 'architecture', 'hazard', 'regime', 'hazard_by_dataset')
-            }, 'Notebook figure snapshot mismatch'
-            break
-        assert _PAYLOAD is not None, 'Notebook contains no reproducibility payload'
+        payload = read_embedded_payload(ROOT / 'notebooks/frontier_lock_reproduction.ipynb')
+        assert payload['source_sha256'] == {
+            n: hashlib.sha256((PAPER / n).read_bytes()).hexdigest()
+            for n in ('frontier-lock.md', 'appendix.md')}, 'Notebook manuscript snapshot mismatch'
+        assert payload['locked_markdown_sha256'] == {
+            n: sha(ROOT / n) for n in ('paper/frontier-lock.md', 'paper/appendix.md', 'README.md', 'analysis/README.md')
+        }, 'Notebook locked Markdown snapshot mismatch'
+        assert payload['figure_png_sha256'] == {
+            n: sha(PAPER / 'figures' / (n + '.png')) for n in MAIN_FIGURES
+        }, 'Notebook figure snapshot mismatch'
+        _PAYLOAD = payload
     return _PAYLOAD
 
 
-def public_key(path):
-    return str(path.relative_to(ROOT)).replace('.ai/blind/', 'evidence/archive/').replace(
-        '.ai/dispatch/', 'evidence/run-archive/')
-
-
 def archived_record(path):
-    item = embedded_inputs()['audit_inputs'][public_key(path)]
+    key = str(path.relative_to(ROOT))
+    item = embedded_inputs()['audit_inputs'][key]
     raw = json.dumps(item['data'], sort_keys=True, separators=(',', ':')).encode()
-    assert hashlib.sha256(raw).hexdigest() == item['data_sha256'], f'Input checksum mismatch: {public_key(path)}'
+    assert hashlib.sha256(raw).hexdigest() == item['data_sha256'], f'Input checksum mismatch: {key}'
     return item
 
 
 def sha(p: Path) -> str:
-    return hashlib.sha256(p.read_bytes()).hexdigest() if p.is_file() else archived_record(p)['data_sha256']
+    if p.is_relative_to(ROOT / 'evidence/records'):
+        return archived_record(p)['data_sha256']
+    return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
 def J(p: Path):
-    return json.loads(p.read_text()) if p.is_file() else archived_record(p)['data']
+    if p.is_relative_to(ROOT / 'evidence/records'):
+        return archived_record(p)['data']
+    return json.loads(p.read_text())
 
 
-def input_glob(folder, pattern):
-    if folder.is_dir():
-        return folder.glob(pattern)
-    prefix = public_key(folder) + '/'
-    return [folder / key[len(prefix):] for key in embedded_inputs()['audit_inputs']
-            if key.startswith(prefix) and '/' not in key[len(prefix):]
-            and fnmatch.fnmatchcase(key[len(prefix):], pattern)]
+def input_glob(group, pattern):
+    return [ROOT / item['key'] for item in embedded_inputs()['audit_groups'][group]
+            if fnmatch.fnmatchcase(item['name'], pattern)]
 
 
 def prepare_archived_figures():
-    if not (ROOT / '.ai/blind/patch_autonomous_inducer_v8').is_dir():
-        import generate_xray_figures as gx
-        data = embedded_inputs()
-        gx.heldout_sources = lambda: data['heldout_ladder']
-        gx.l2_sources = lambda: data['l2_rules']
+    import generate_xray_figures as gx
+    data = embedded_inputs()
+    gx.heldout_sources = lambda: data['heldout_ladder']
+    gx.l2_sources = lambda: data['l2_rules']
+    cover = types.ModuleType('generate_cover')
+    cover.__file__ = 'generate_cover.py'
+    exec(compile(data['cover']['source'], cover.__file__, 'exec'), cover.__dict__)
+    cover.COVER_INPUT_NAMES = data['cover']['names']
+    cover.COVER_INPUTS = data['cover']['records']
+    cover.COVER_INPUT_HASHES = data['cover']['hashes']
+    sys.modules['generate_cover'] = cover
+
+
+def display_path(path):
+    return str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
 
 
 def norm(s: str) -> str:
@@ -141,18 +182,12 @@ NORM = {k: norm(v) for k, v in TEXT.items()}
 # ---------------------------------------------------------------- invariant 1
 
 def invariant_1():
-    def scan(path: Path):
-        hits = []
-        for n, line in enumerate(path.read_text().splitlines(), 1):
-            for term in FORBIDDEN:
-                if term in line:
-                    i = line.index(term)
-                    hits.append({'file': str(path.relative_to(ROOT)), 'line': n, 'term': term,
-                                 'context': line[max(0, i - 50):i + len(term) + 50]})
-        return hits
+    def scan(path):
+        return [{'file': str(path.relative_to(ROOT)), 'line': n, 'term': hit['term'],
+                 'context': 'SHA-256 substring match', 'offset': hit['offset']}
+                for n, line in enumerate(path.read_text().splitlines(), 1) for hit in forbidden_hits(line)]
     core = [h for p in DOCS.values() for h in scan(p)]
     ext = [h for p in EXTENDED if p.exists() for h in scan(p)]
-    # held-out iteration labels: gating in the two manuscript files, reported for the LaTeX and the notebook
     for p in (DOCS['FL'], DOCS['AP'], *EXTENDED):
         if not p.exists():
             continue
@@ -161,17 +196,15 @@ def invariant_1():
                 (core if p in (DOCS['FL'], DOCS['AP']) else ext).append(
                     {'file': str(p.relative_to(ROOT)), 'line': n, 'term': m.group(0),
                      'context': line[max(0, m.start() - 50):m.end() + 50]})
-    # case-insensitive echo of the same list, reported only
     ci = []
     for k, p in DOCS.items():
-        low = TEXT[k].lower()
-        for term in FORBIDDEN:
-            c = low.count(term.lower())
-            exact = TEXT[k].count(term)
-            if c > exact:
-                ci.append({'file': str(p.relative_to(ROOT)), 'term': term, 'case_insensitive_only_hits': c - exact})
-    return {'passed': not core, 'terms': FORBIDDEN, 'files': [str(p.relative_to(ROOT)) for p in DOCS.values()],
-            'hits': core, 'hit_count': len(core),
+        exact = {(h['offset'], h['length']) for h in forbidden_hits(TEXT[k])}
+        for h in forbidden_hits(TEXT[k], ignore_case=True):
+            if (h['offset'], h['length']) not in exact:
+                ci.append({'file': str(p.relative_to(ROOT)), 'term': h['term'],
+                           'case_insensitive_only_hits': 1})
+    return {'passed': not core, 'terms': [digest for _, _, digest in publication_policy().get('substring_rules', ())],
+            'files': [str(p.relative_to(ROOT)) for p in DOCS.values()], 'hits': core, 'hit_count': len(core),
             'extended_scan': {'files': [str(p.relative_to(ROOT)) for p in EXTENDED if p.exists()],
                               'hits': ext, 'hit_count': len(ext), 'gating': False},
             'case_insensitive_variants': ci}
@@ -471,7 +504,7 @@ def proposition_claims():
     cap_gaps = [table[d][f'k{k}']['weighted_100_cap_gap'] for d in DATASETS for k in ks]
     c.src('weighted 100-capped closed form max error', max(cap_gaps), '<=0.021', max(cap_gaps) <= 0.021)
     c.src('weighted 100-capped closed form mean error rounded to 4 decimals', round(statistics.mean(cap_gaps), 4), 0.0044)
-    th = J(ROOT / '.ai/blind/patch_autonomous_universality/theory_results.json')['pure_dilution']
+    th = J(ROOT / 'evidence/records/8a952e246eddd3e16e4ed3b2e0c4001ccb70fda1180d0c5fa9df346bd13ba66f')['pure_dilution']
     agree = all(abs(-th[d][j]['rel'] - table[d][f'k{k}']['exact_loss']) < 1e-3
                 for d in DATASETS for j, k in enumerate((8, 32, 224, 600)))
     c.src('independent recompute agrees with theory_results.json pure_dilution', agree, True)
@@ -572,7 +605,7 @@ def public25_claims():
 
 def heldout_claims():
     a9 = J(OUT / 'a9_d4_and_reachability_audit.json')['ledger_9_suites']
-    U = J(ROOT / '.ai/blind/patch_autonomous_universality/universality_results.json')
+    U = J(ROOT / 'evidence/records/18a9a3aa255143e36dd8f3f400201f0f7dbb4a785832c81bc4bcd35d21590196')
     P = U['pooled']
     c = Claim('T1', '98 held-out games, frozen pre-exposure snapshot')
     c.src('games', P['games'], 98)
@@ -600,15 +633,14 @@ def heldout_claims():
     c.need('655 levels', r'655', ['FL', 'AP', 'RD'])
     out = [c]
 
-    T = ROOT / '.ai/blind/patch_autonomous_astra_transfer'
-    I = J(T / 'online_inducer_results.json')
+    I = J(ROOT / 'evidence/records/d01e3c616ac43ff52ded0abfba2d5aac37ed8f099cbcb2fc7dc9023ce8d1d151')
     ip = I['suites']['pooled']
     c = Claim('T3', '98 held-out games, uncalibrated OnlineInducer (97L)')
     # recompute the pooled arms and the paired bootstrap from the per-game run files
     import random as _random
     arms = {}
     for tag, a in (('v1', 'random'), ('v1', 'general'), ('v1', 'gated'), ('v5gf', 'inducer')):
-        arms[a] = {(g['suite'], g['game']): g for g in (J(p)['games'][0] for p in sorted(input_glob(T / 'runs' / tag, f'*__{a}.json')))}
+        arms[a] = {(g['suite'], g['game']): g for g in (J(p)['games'][0] for p in sorted(input_glob({'v1': '2228e6d566507aa6bbefa1672182b164fd7abcd897271ca8b696363789d37b94', 'v5gf': '5e81ad7760b5a82599db5d2c43ed4212918e8b398253ea825e1cd58e31a3582b'}[tag], f'*__{a}.json')))}
     keys = sorted(arms['general'])
 
     def paired(x, y):
@@ -638,9 +670,9 @@ def heldout_claims():
     out.append(c)
 
     c = Claim('T4', '98 held-out games, +Op0 novelty-gated translation')
-    V = J(ROOT / '.ai/blind/patch_autonomous_click_inertia/online_inducer_v6_results.json')
+    V = J(ROOT / 'evidence/records/c4808c2127eeeb9101fcf3818ce851629ca16839bed3355b4c527b3d6a0d2ccd')
     vp = V['suites']['pooled']
-    k3 = ROOT / '.ai/blind/patch_autonomous_click_inertia' / V['delivered']['run']
+    k3 = '0977ad3185ec50ab121c8c06b323c164d7debe00b75b7bc85483ef634126a49b'
     arms['v6'] = {(g['suite'], g['game']): g for g in (J(p)['games'][0] for s in ('mother1102', 'tufaweb1102', 'turducken49')
                                                        for p in sorted(input_glob(k3, f'{s}__*__inducer.json')))}
 
@@ -665,10 +697,9 @@ def heldout_claims():
     out.append(c)
 
     c = Claim('T5', '98 held-out games, +Op1 tile graph and +Op2 switch-connectivity + rewind')
-    B = ROOT / '.ai/blind'
-    V7 = J(B / 'inducer_v7_combined_results.json')
-    CK = J(B / 'patch_autonomous_click_connectivity/inducer_v7_click_results.json')
-    GR = J(B / 'patch_autonomous_object_graph/inducer_v7_graph_results.json')
+    V7 = J(ROOT / 'evidence/records/d124c871480bb63a425086c709e4750726b76575054e14f2e0201ee2eb936150')
+    CK = J(ROOT / 'evidence/records/bbc92d76736c38c2835fcee8851136c66f89bf2a95857ac22e2f5f04ed4dae4c')
+    GR = J(ROOT / 'evidence/records/9e9686e5245bbd6deabca04ddc36fc63e8cfe774073f4afa659cb2127898f598')
     held = [g for g in V7['per_game'] if g['suite'] in ('mother1102', 'tufaweb1102', 'turducken49')]
     pub = [g for g in V7['per_game'] if g['suite'] == 'public25']
     v7arms = ('general', 'v6', 'v7_graph', 'v7_click', 'v7')
@@ -798,10 +829,9 @@ def operator_claims():
     """T6: +Op3 and +Op4 from their run receipts, +Op4 Full as the per-game union, the certificate abort rate, the
     L2 local D4 rule audit, and no held-out iteration labels in the manuscript."""
     import generate_xray_figures as gx
-    B = ROOT / '.ai/blind'
-    V8 = J(B / 'patch_autonomous_inducer_v8/inducer_v8_results.json')
-    V8B = J(B / 'patch_autonomous_inducer_v8b/inducer_v8b_results.json')
-    D4 = J(B / 'patch_autonomous_d4_subboard/d4_subboard_and_factors_receipt.json')
+    V8 = J(ROOT / 'evidence/records/f32af64750f18068b2854068ee41a41f611f465bd6ffbd24a290104dfae85f10')
+    V8B = J(ROOT / 'evidence/records/2fd7d2ec35e2f618f4ae4d988ce04cff7e14180a651b4fb1d8de61d3064f2725')
+    D4 = J(ROOT / 'evidence/records/3ee575765ac279abd8bf266666d3ba09b7546f1fc67f2d61a57ddb11b29cbac1')
     c = Claim('T6', '98 held-out games, +Op3 pip-clue CSP, +Op4 drift refit, L2 local D4 rules')
     lad = gx.component_ladder(gx.heldout_sources())   # asserts every stored arm and CI equals the recomputation
     R, T = lad['rungs'], lad['vs_zero_prior']
@@ -851,7 +881,7 @@ def operator_claims():
     out = [c]
 
     # T7: the single frozen v9 file (cumulative, LOO, Bare-Prior, certificates, Scorecard G) and the v9b default
-    V9 = J(B / 'patch_autonomous_inducer_v9/inducer_v9_all_results.json')
+    V9 = J(ROOT / 'evidence/records/578389ea6a545be42ea519cf5017765143edbce9e4ff2bf362bfec5439f78935')
     src = gx.heldout_sources()
     c = Claim('T7', 'Single frozen OnlineInducer file: cumulative + LOO, Bare-Prior, Virgin-120, eta, Scorecard G')
     A9, P9 = lad['v9_arms'], lad['v9_paired']   # recomputed per game; component_ladder asserts them against V9
@@ -1025,7 +1055,7 @@ def invariant_3():
     passed = (not errs and all(p['shipped_green_px'] == 0 and p['live_figcheck_hits'] == 0 and p['live_green_px'] == 0
                                for p in per.values()))
     return {'passed': passed, 'figures': per, 'live_rerun': live, 'shipped_hue_audit': shipped,
-            'other_pngs_in_folder': extra, 'errors': errs, 'rerun_dir': str(rerun_dir.relative_to(ROOT)),
+            'other_pngs_in_folder': extra, 'errors': errs, 'rerun_dir': display_path(rerun_dir),
             'runtime_s': round(time.time() - t0, 1)}
 
 
@@ -1106,8 +1136,8 @@ def main():
     # sources must not move while the audit ran
     after = {str(p.relative_to(ROOT)): sha(p) for p in SOURCES}
     rec['sources_unchanged_during_audit'] = after == rec['source_sha256']
-    rec['invariant_4'] = {'passed': True, 'receipt': str((HERE / 'preflight_audit_receipt.json').relative_to(ROOT)),
-                          'report': str((HERE / 'PREFLIGHT_REPORT.md').relative_to(ROOT))}
+    rec['invariant_4'] = {'passed': True, 'receipt': display_path(HERE / 'preflight_audit_receipt.json'),
+                          'report': display_path(HERE / 'PREFLIGHT_REPORT.md')}
     rec['failed_invariants'] = [k for k in ('invariant_1', 'invariant_2', 'invariant_3') if not rec[k]['passed']]
     if not rec['sources_unchanged_during_audit']:
         rec['failed_invariants'].append('sources_changed_during_audit')
